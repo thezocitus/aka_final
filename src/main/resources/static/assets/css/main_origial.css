@@ -3329,7 +3329,8 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: 100%;
 		opacity: 1;
-		padding: 1em;		
+		padding: 4.5em;
+		width: 90em;
 	}
 
 		body.is-menu-visible #wrapper {
@@ -3379,8 +3380,8 @@ input, select, textarea {
 
 	#sidebar {
 		margin-right: 3em;
-		min-width: 10em;
-		width: 10em;
+		min-width: 22em;
+		width: 22em;
 	}
 
 		#sidebar > * {
