@@ -59,7 +59,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Academy</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -192,7 +192,7 @@
               </a>
             </li>
              <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/equipment/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Tables">비품관리</div>
               </a>
@@ -203,13 +203,13 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">상품</span></li>
 
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/product/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Tables">상품 리스트</div>
               </a>
             </li>                           
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/payment/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Tables">결제 리스트</div>
               </a>
@@ -218,7 +218,7 @@
              <!-- 게시판 -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">게시판</span></li>                                   
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/board/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Tables">게시판</div>
               </a>
