@@ -84,16 +84,16 @@
             </li>
             <!-- 인사 -->
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/hrm/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">인사</div>
+                <div data-i18n="Tables">직원 목록</div>
               </a>
             </li>
             <!-- 부서 -->
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/department/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">부서</div>
+                <div data-i18n="Tables">부서 목록</div>
               </a>
             </li>
             
@@ -107,17 +107,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="ui-accordion.html" class="menu-link">
+                  <a href="/edms/pro/list" class="menu-link">
                     <div data-i18n="Accordion">결제 진행</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="ui-alerts.html" class="menu-link">
+                  <a href="/edms/done/list" class="menu-link">
                     <div data-i18n="Alerts">결제 완료</div>
                   </a>
                 </li>
                  <li class="menu-item">
-                  <a href="ui-alerts.html" class="menu-link">
+                  <a href="/edms/temp/list" class="menu-link">
                     <div data-i18n="Alerts">임시 저장</div>
                   </a>
                 </li>
@@ -133,17 +133,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
+                  <a href="/edms/rev/list" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">수신 결제</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
+                  <a href="/edms/done/list" class="menu-link">
                     <div data-i18n="Text Divider">결제 내역</div>
                   </a>
                 </li>
                  <li class="menu-item">
-                  <a href="extended-ui-text-divider.html" class="menu-link">
+                  <a href="/edms/ex/list" class="menu-link">
                     <div data-i18n="Text Divider">검토</div>
                   </a>
                 </li>               
@@ -156,16 +156,16 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">일정 관리</span></li>
 
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/calendar/urDetail" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">개인</div>
+                <div data-i18n="Tables">개인 일정</div>
               </a>
             </li>
             
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/calendar/drDetail" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">부서</div>
+                <div data-i18n="Tables">부서 일정</div>
               </a>
             </li>            
       
@@ -173,28 +173,28 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">수업 관리</span></li>
 
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/class/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">수업</div>
+                <div data-i18n="Tables">수업 관리</div>
               </a>
             </li>
             
              <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/student/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">학생</div>
+                <div data-i18n="Tables">학생 관리</div>
               </a>
             </li>           
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
+              <a href="/classRoom/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">강의실</div>
+                <div data-i18n="Tables">강의실 관리</div>
               </a>
             </li>
              <li class="menu-item">
               <a href="/equipment/list" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Tables">비품관리</div>
+                <div data-i18n="Tables">비품 관리</div>
               </a>
             </li>        
             
