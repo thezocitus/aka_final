@@ -39,8 +39,6 @@
 	font-size: 12px; 
 	font-weight: bold; 
 	vertical-align: middle;
-
-
 }
 .userTdW{
 	background: rgb(255, 255, 255); 
@@ -53,6 +51,23 @@
 	font-weight: bold; 
 	vertical-align: middle;
 }
+
+
+.addbtn{
+	background: rgb(221, 221, 221); 
+	padding: 5px; 
+	border: 1px solid black; 	 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 12px; 
+	font-weight: bold; 
+	vertical-align: middle;
+	writing-mode: vertical-lr;
+
+}
+
+
+
 .contentsTable{
 	border: 2px solid; 
 	width: 800px; 
@@ -65,10 +80,29 @@
 
 }
 
+.addlist{
+
+	width: 800px; 
+	font-family: &quot;
+	malgun gothic&quot;, dotum, arial, tahoma; 
+	margin-top: 10px; 
+	border-collapse: collapse; 
+	height: auto;
+
+
+}
+
+
 
 </style>
 
 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 
 
@@ -81,81 +115,10 @@
   
 <div class="row ">
 
-	<div class="col-5 text-center align-self-center">
+	<div class="col-12 text-center align-self-center">
 		<h1>휴가신청서</h1>
 	</div>
-	<div class="col-7" >
-	<div class="row justify-content-end">
-	<div class="col-auto ps-0 pe-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-	<div class="col-auto ps-0 pe-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-	<div class="col-auto ps-0 pe-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-	<div class="col-auto ps-0 pe-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-	<div class="col-auto ps-0 pe-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-	<div class="col-auto ps-0">
-		<div class="border p-2 fs-5">직급</div>
-		<div class="border p-2 fs-5">이름</div>
-		<div class="border p-2 fs-5">날짜</div>
-	</div>
-		<!-- <table>
-			<tr >
-				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 10px; text-align: center; color: rgb(0, 0, 0); font-size: 10px; vertical-align: middle;" >
-					<p>직급</p>
-				</td>
-				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 10px; text-align: center; color: rgb(0, 0, 0); font-size: 10px; vertical-align: middle;" >
-					<p>직급</p>
-				</td>
-				<td style="background: rgb(221, 221, 221); padding: 5px; border: 1px solid black; height: 10px; text-align: center; color: rgb(0, 0, 0); font-size: 10px; vertical-align: middle;" >
-					<p>직급</p>
-				</td>
-			</tr>
-			<tr style="background: rgb(255, 255, 255); padding: 5px; border: 1px solid black; height: 10px; text-align: center; color: rgb(0, 0, 0); font-size: 12px; font-weight: bold; vertical-align: middle;" >
-			
-				<td>
-					<p>이름</p>				
-				</td>
-				<td>
-					<p>이름</p>				
-				</td>
-				<td>
-					<p>이름</p>				
-				</td>
-			</tr>
-			<tr style="background: rgb(221, 221, 221);  border: 1px solid black; height: 15px; text-align: center; color: rgb(0, 0, 0); font-size: 12px;  vertical-align: middle;" >
-			 
-				<td>
-					<p>날짜</p>				
-				</td>
-				<td>
-					<p>날짜</p>				
-				</td>
-				<td>
-					<p>날짜</p>				
-				</td>
-			</tr>
-		
-			</table> -->
-	</div>
-	</div>
+	
 </div>
 
 
@@ -213,6 +176,23 @@
 </table>
  
  
+ <div class="addlist">
+ 
+<!--  <button class="btn border color-dark" style="background-color: #DDDDDD">
+ 	결제선 추가
+ 
+ </button>
+  -->
+  <button class="addbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addBtn">
+ 	결제선 <br> 추가
+ 
+ </button>
+ 
+ 
+ 
+ </div>
+ 
+ 
 <table class="contentsTable" >
 	<colgroup> 
    <col width="140"> 
@@ -241,33 +221,23 @@
 		</tr>
 		<tr>
 			<td class="userTdW" colspan="2">			
-				<span  style="width: 100%; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;">
-					<span class="comp_editor" style="width: 100%; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 11pt; line-height: 200px; margin-top: 0px; margin-bottom: 0px;">
-						
-					</span>	
-				
-			
-				</span> 
-			<br>				
-				
+				 <div id="summernote"></div>
 			    
 			</td>
 		</tr>
 	</tbody>
 </table>
-</table>
-			    
 
 <table class="contentsTable" >
 	<colgroup> 
-	   <col width="120"> 
+	   <col width="140"> 
 	   <col width="660"> 
 	 </colgroup> 
   
 	<tbody>
 		<tr>
 			<td class="userTdG">	
-				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
+참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
 			
@@ -284,6 +254,81 @@
 <p style="font-family: &quot;맑은 고딕&quot;; font-size: 10pt; line-height: 20px; margin-top: 0px; margin-bottom: 0px;"><br></p>
 
 </div>
+
+<!-- modal  -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<form>
+			<div class="mb-3">
+				<label for="recipient-name" class="col-form-label">Recipient:</label>
+				<input type="text" class="form-control" id="recipient-name">
+			</div>
+			<div class="mb-3">
+				<label for="message-text" class="col-form-label">Message:</label>
+				<textarea class="form-control" id="message-text"></textarea>
+			</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-primary">Send message</button>
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		</div>
+		</div>
+	</div>
+	</div>
+
+    <script>
+      $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
+
+
+
+
+
+<script>
+	const addbtn = document.getElementById("addBtn");
+	const myModal = document.getElementById('myModal')
+	const myInput = document.getElementById('myInput')
+
+
+
+	let temp = ``;
+
+	addbtn.addEventListener('shown.bs.modal',function(){
+
+
+
+		myInput.focus()
+
+	})
+
+	
+
+
+
+</script>
+
+
+
 
 
 
