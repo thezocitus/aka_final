@@ -71,7 +71,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item "><!-- class에 active 넣으면 색칠해짐 -->
+            <li class="menu-item active">
               <a href="/" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -106,12 +106,12 @@
                 <div data-i18n="User interface">상신함</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item ">
+                <li class="menu-item">
                   <a href="/edms/pro/list" class="menu-link">
                     <div data-i18n="Accordion">결제 진행</div>
                   </a>
                 </li>
-                <li class="menu-item ">
+                <li class="menu-item">
                   <a href="/edms/done/list" class="menu-link">
                     <div data-i18n="Alerts">결제 완료</div>
                   </a>
