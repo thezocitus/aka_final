@@ -112,7 +112,7 @@
 		  </div>
 			<%-- <c:import url="../temp/body.jsp"></c:import> --%>
             <!-- / Content -->
-
+			<c:import url="../EDMS/${path}.jsp"></c:import>
            
 
             <div class="content-backdrop fade"></div>
@@ -132,7 +132,6 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>
     <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
@@ -150,5 +149,10 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    
+   
+    
+    
   </body>
 </html>
