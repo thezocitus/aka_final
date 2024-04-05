@@ -31,4 +31,11 @@ public class EdmsController {
 		
 	}
 	
+	@GetMapping("create")
+	public String create(Model model) {
+		
+		return "EDMS/create";
+		
+	}
+	
 }
