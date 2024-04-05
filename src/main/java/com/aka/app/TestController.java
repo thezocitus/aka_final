@@ -11,4 +11,16 @@ public class TestController {
 		return "temp/sample";
 	}
 	
+	@GetMapping("/login")
+	public String test2() {
+		return "member/first";
+	}
+	@GetMapping("/login/memberLogin")
+	public String test3() {
+		return "member/memberLogin";
+	}
+	@GetMapping("/login/memberRegister")
+	public String test4() {
+		return "member/memberRegister";
+	}
 }
