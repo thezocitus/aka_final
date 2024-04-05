@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -21,13 +23,14 @@
   data-template="vertical-menu-template-free"
 >
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+      charset="UTF-8"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Login</title>
 
     <meta name="description" content="" />
 
@@ -75,7 +78,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="/login" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <svg
                       width="25"
@@ -144,6 +147,7 @@
                     id="email"
                     name="email-username"
                     placeholder="Enter your email or username"
+                    value="user1"
                     autofocus
                   />
                 </div>
@@ -162,6 +166,7 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
+                      value=abcd1234
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
@@ -177,10 +182,11 @@
                 </div>
               </form>
               <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" type="submit">회원가입</button>
+                <a href="memberRegister" class="btn btn-primary d-grid w-100">회원가입</a>
+                <!-- <button class="btn btn-primary d-grid w-100" type="submit">íìê°ì</button> -->
               </div>
-              <div class="mx-auto" style="width:300px; padding: 1px;">
-                <span>-또는-</span>
+              <div class="mx-auto p-2">
+                <span class="line d-flex justify-content-center">또는</span>
               </div>
               <div class="mb-3">
                 <button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
