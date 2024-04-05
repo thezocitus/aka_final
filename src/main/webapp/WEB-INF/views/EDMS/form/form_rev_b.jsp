@@ -6,7 +6,7 @@
 
 
 
- <c:import url="../temp/head.jsp"></c:import>
+ <c:import url="../../temp/head.jsp"></c:import>
  <c:import url="/js/edms/form.css"></c:import>
 
 
@@ -27,34 +27,29 @@
 
 <span style="font-family: &quot;맑은 고딕&quot;; font-size: 10pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"> 
   
-<div class="row" >
+<div class="row " >
 
 	 <div class="col-6 text-center align-self-center">
 		<h1>기안서</h1>
 	</div>
 	
 	<div class="col-6">
-	 
-	
-	   <button class="addbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addBtn">
- 				결제선 <br> 추가 
- 		</button>
- 
-
-		<div id="appLine" class="appTable" style="float: right;">
-			<div>
-				
-			</div>
-			
-			<div class="col-auto ps-0 pe-0">
-				<div class="applineG">직급</div>
-				<div class="applineW">이름</div>
-				<div class="applineG">날짜</div>
-			</div>
-			
-		</div>
-		
-		
+		 <table class="appTable" style="float: right;">
+			<tr >
+				<td class="applineG" >
+					<span>직급</span>
+				</td>
+			</tr>
+			<tr>			
+				<td class="applineW" >
+					<span>이름이다</span>		
+				</td>				
+			</tr>
+			<tr>			 
+				<td class="applineG" >
+					<span>날자</span>
+				</td>	
+		</table> 
 	</div>
 </div>
 
@@ -126,23 +121,21 @@
 	<tbody>
 		<tr>
 			<td class="userTdG">	
-				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
+참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
-				<input>
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdG">		
-				제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
+제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
 			</td>
 			<td class="userTdW">	
-				<input>
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdG" colspan="2">
-				상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
+상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
 			</td>
 		</tr>
 		<tr>
@@ -171,7 +164,7 @@
 	<tbody>
 		<tr>
 			<td class="userTdG">	
-				첨&nbsp;&nbsp;부&nbsp;&nbsp;파&nbsp;&nbsp;일
+				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
 			
@@ -228,7 +221,7 @@
       $('#summernote').summernote({
         placeholder: 'Hello stand alone ui',
         tabsize: 2,
-        height: 400,
+        height: 120,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -246,30 +239,29 @@
 
 
 <script>
-
-	const addBtn = document.getElementById("addBtn"); //모달 여는 버튼
+	const addbtn = document.getElementById("addBtn"); //모달 여는 버튼
 	const appBtn = document.getElementById("appBtn"); //모달 확인버튼
 	const myModal = document.getElementById('myModal')
 	const myInput = document.getElementById('myInput')
 
 	
 
+	let temp = ``;
+
 	
-	//모달 불러오는 함수
-	appLineAdd.addEventListener('shown.bs.modal',function(){		
-		
-		console.log("1qewqeq");
+	모달 불러오는 함수
+	addbtn.addEventListener('shown.bs.modal',function(){		
 		
 		myInput.focus()		
 
-	});
+	})
 
 	
-	
-	
-	
-	
-	
+	appBtn.addEventListener('click',()=>{
+		
+		
+		
+	})
 	
 	
 
@@ -285,5 +277,6 @@
  <script src="/assets/vendor/libs/jquery/jquery.js"></script>
  <script src="/assets/vendor/js/bootstrap.js"></script>
  <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
 
 

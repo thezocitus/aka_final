@@ -14,7 +14,7 @@ public class EdmsController {
 	public String getProlist() {
 		
 		return "EDMS/prolist";
-		
+		 
 	}
 	
 	/*
@@ -37,5 +37,15 @@ public class EdmsController {
 		return "EDMS/create";
 		
 	}
+	
+	
+	
+	@GetMapping("form/draft")
+	public String getformDraft(Model model) {
+		
+		return "EDMS/form/draft";
+		
+	}
+	
 	
 }

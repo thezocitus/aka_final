@@ -112,7 +112,7 @@
 		  </div>
 			<%-- <c:import url="../temp/body.jsp"></c:import> --%>
             <!-- / Content -->
-			<c:import url="../EDMS/${path}.jsp"></c:import>
+	<%-- 		<c:import url="../EDMS/${path}.jsp"></c:import> --%>
            
 
             <div class="content-backdrop fade"></div>

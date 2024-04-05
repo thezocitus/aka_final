@@ -6,7 +6,7 @@
 
 
 
- <c:import url="../temp/head.jsp"></c:import>
+ <c:import url="../../temp/head.jsp"></c:import>
  <c:import url="/js/edms/form.css"></c:import>
 
 
@@ -36,10 +36,7 @@
 	<div class="col-6">
 	 
 	
-	   <button class="addbtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addBtn">
- 				결제선 <br> 추가 
- 		</button>
- 
+	 <button type="button" id="appLineAdd"> 버튼</button>
 
 		<div id="appLine" class="appTable" style="float: right;">
 			<div>
@@ -126,23 +123,21 @@
 	<tbody>
 		<tr>
 			<td class="userTdG">	
-				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
+참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
-				<input>
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdG">		
-				제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
+제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
 			</td>
 			<td class="userTdW">	
-				<input>
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdG" colspan="2">
-				상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
+상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
 			</td>
 		</tr>
 		<tr>
@@ -171,7 +166,7 @@
 	<tbody>
 		<tr>
 			<td class="userTdG">	
-				첨&nbsp;&nbsp;부&nbsp;&nbsp;파&nbsp;&nbsp;일
+				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
 			
@@ -247,27 +242,28 @@
 
 <script>
 
-	const addBtn = document.getElementById("addBtn"); //모달 여는 버튼
+
+
+	const addbtn = document.getElementById("addBtn"); //모달 여는 버튼
 	const appBtn = document.getElementById("appBtn"); //모달 확인버튼
 	const myModal = document.getElementById('myModal')
 	const myInput = document.getElementById('myInput')
 
 	
 
+	let temp = ``;
+
 	
-	//모달 불러오는 함수
-	appLineAdd.addEventListener('shown.bs.modal',function(){		
-		
-		console.log("1qewqeq");
+	모달 불러오는 함수
+	addbtn.addEventListener('shown.bs.modal',function(){		
 		
 		myInput.focus()		
 
-	});
+	})
 
 	
-	
-	
-	
+	appBtn.addEventListener('click',()=>{		
+	})
 	
 	
 	
