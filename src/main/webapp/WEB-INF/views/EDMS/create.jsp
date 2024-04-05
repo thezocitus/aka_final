@@ -242,9 +242,6 @@
     </script>
 
 
-
-
-
 <script>
 
 	const addBtn = document.getElementById("addBtn"); //모달 여는 버튼
