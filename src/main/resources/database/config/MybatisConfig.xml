@@ -5,6 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <configuration>
 	<typeAliases>
-	<typeAlias type="java.lang.String" alias="String" />
+		<typeAlias type="java.lang.String" alias="String" />
+		<typeAlias type="com.aka.app.member.RoleVO" alias="RoleVO" />
+		<typeAlias type="com.aka.app.member.MemberVO" alias="MemberVO" />
 	</typeAliases>
 </configuration>
