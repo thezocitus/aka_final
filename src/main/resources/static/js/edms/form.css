@@ -63,7 +63,9 @@
 	text-align: center; 
 	color: rgb(0, 0, 0); 
 	font-size: 12px; 
-	vertical-align: middle;
+	vertical-align: middle;	
+	border-collapse: collapse;
+	
 }
 
 .applineW{
@@ -75,15 +77,19 @@
 	text-align: center; 
 	color: rgb(0, 0, 0); 
 	font-size: 15px; 
-	vertical-align: middle;
+	vertical-align: middle;	
+	border-collapse: collapse;
+	
+	
 	
 }
 
 .appTable{
-	 border: 0px solid rgb(0, 0, 0);	 
-	 font-family: malgun gothic, dotum, arial, tahoma; 
-	 margin-top: 1px; 
-	 border-collapse: collapse;
+	border: 0px solid rgb(0, 0, 0);	 
+	font-family: malgun gothic, dotum, arial, tahoma; 
+	margin-top: 1px; 
+    display : table;
+	 
 	 }
 
 .addbtn{
