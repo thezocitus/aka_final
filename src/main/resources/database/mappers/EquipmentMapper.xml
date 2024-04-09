@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.aka.app.equipment.EquipmentDAO">
+	
+	<insert id="createEquiment" parameterType="EquipmentVO">
+	INSERT INTO EQUIPMENT (MEMBER_ID,EQUIPMENT_NAME,EQUIPMENT_DATE,EQUIPMENT_EA,EQUIPMENT_CONTENTS)
+	VALUES (#{member_id},#{equipment_name},#{equipment_date},#{equipment_ea},#{equipment_contents})
+	</insert>
+	
+	<select id="getEquimentDetail" resultType="EquipmentVO" parameterType="EquipmentVO">
+	SELECT * FROM EQUIPMENT WHERE EQUIPMENT_NUM = #{equipment_num}
+	</select>
+	
+	<select id="getEquimentList" resultType="EquipmentVO">
+	SELECT * FROM EQUIPMENT 
+	ORDER BY EQUIPMENT_NUM DESC 
+	</select>
+
+	
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+	SELECT COUNT(*) FROM EQUIPMENT
+	</select>
+
+</mapper>

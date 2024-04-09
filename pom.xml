@@ -19,7 +19,14 @@
 	</properties>
 	<dependencies>
 
-	
+
+
+		<!--폼 검증-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
 		<!--spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>

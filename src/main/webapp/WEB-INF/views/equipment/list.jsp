@@ -46,11 +46,43 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-
-			<c:import url="../temp/body.jsp"></c:import>
+             <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4">Equiment<span class="text-muted fw-light">/list</span></h4>
+				<div class="card">
+                <h5 class="card-header">비품 관리 목록</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead class="table-light">
+                      <tr>
+                        <th>비품 번호</th>
+                        <th>관리자 사원 번호</th>
+                        <th>비품 이름</th>
+                        <th>비품 추가 날짜</th>
+                        <th>수량</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                     <c:forEach items="${list}" var="vo">
+                    
+                      <tr>
+                        <td>${vo.equipment_num}</td>
+                        <td>${vo.member_id}</td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><a href="/equipment/detail?equipment_num=${vo.equipment_num}"><strong>${vo.equipment_name}</strong></a></td>
+                        <td>${vo.equipment_date}</td>
+                        <td>${vo.equipment_ea}</td>
+                      </tr>
+                      
+                     </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            <div class="demo-inline-spacing ml-6">
+				<a class=" btn btn-primary" href="/equipment/create">추가</a>
+           </div>
+              </div>
             <!-- / Content -->
-
-           
 
             <div class="content-backdrop fade"></div>
           </div>
