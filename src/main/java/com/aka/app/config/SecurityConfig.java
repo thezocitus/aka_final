@@ -1,7 +1,6 @@
 package com.aka.app.config;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +11,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import com.aka.app.member.MemberService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,6 +29,21 @@ public class SecurityConfig {
 	
 	@Autowired
 	private SecurityLoginFailureHandler loginFailureHandler;
+
+
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	private SecurityLoginSuccessHandler securityLoginSuccessHandler;
+	
+	@Autowired
+	private SecurityLoginFailureHandler securityLoginFailureHandler;
 	
 	@Bean
 	WebSecurityCustomizer webSecurityCustomizer() throws Exception{
@@ -42,6 +58,7 @@ public class SecurityConfig {
 	}
 	
 	@Bean
+
 	SecurityFilterChain filterChain (HttpSecurity security) throws Exception {
 		
 		log.info("security config");
@@ -98,17 +115,25 @@ public class SecurityConfig {
 		// password 암호화 해주는 객체
 		return new BCryptPasswordEncoder();
 	}
+
+	public SecurityFilterChain filterChain(HttpSecurity security) throws Exception{
+		
+		security.authorizeHttpRequests(
+				(authorizeHttpRequests) -> 
+					
+					authorizeHttpRequests
+					.requestMatchers("/").permitAll()
+			)
+			.formLogin(
+				(login) -> 
+					login
+						.loginPage("/login")
+						.successHandler(securityLoginSuccessHandler)
+						.failureHandler(securityLoginFailureHandler)
+						.permitAll()
+			);
+			
+			
+		return security.build();
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
