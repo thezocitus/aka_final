@@ -57,8 +57,7 @@ public class EdmsController {
 	
 	@PostMapping("apply")
 	@ResponseBody
-	public Map<String, Object> apply( EdmsVO edmsVO, Model model, MultipartFile[] file) throws Exception {
-		
+	public Map<String, Object> apply( EdmsVO edmsVO, Model model, MultipartFile[] file) throws Exception {		
 
 		
 		Map<String, Object> map = new HashMap<String, Object>();
