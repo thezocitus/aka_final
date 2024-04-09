@@ -6,6 +6,4 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberDAO {
 	
 	public MemberVO getDetail(MemberVO memberVO) throws Exception;
-	
-	public int add(MemberVO memberVO) throws Exception;
 }

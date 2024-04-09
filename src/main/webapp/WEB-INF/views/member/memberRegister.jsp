@@ -140,13 +140,13 @@
               <h4 class="mb-2 fw-bold">회원가입 🚀</h4>
               <br>
 
-              <form id="formAuthentication" class="mb-3" action="./register" method="POST">
+              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="userId" class="form-label">ID</label>
+                  <label for="user_id" class="form-label">ID</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="userId"
+                    id="user_id"
                     name="user_id"
                     placeholder="Enter your id"
                     autofocus
@@ -192,13 +192,13 @@
                   <span class="mb-5" style="color: red;">33333</span>
 
                   <div class="my-3 form-password-toggle">
-                    <label class="form-label" for="passwordCheck">PasswordCheck</label>
+                    <label class="form-label" for="password">PasswordCheck</label>
                     <div class="input-group input-group-merge">
                       <input
                         type="password"
-                        id="passwordCheck"
+                        id="password"
                         class="form-control"
-                        name="passwordCheck"
+                        name="password"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                       />
@@ -240,7 +240,7 @@
                     </label>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary d-grid w-100 fw-bold">가입하기</button>
+                <button class="btn btn-primary d-grid w-100 fw-bold">가입하기</button>
               </form>
             </div>
           </div>

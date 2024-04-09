@@ -4,12 +4,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
 	<typeAliases>
 
-		<typeAlias type="java.lang.String" alias="String" />
+	<typeAlias type="java.lang.String" alias="String" />
+	<typeAlias type="com.aka.app.edms.EdmsVO" alias="EdmsVO"/>
 		<typeAlias type="com.aka.app.member.RoleVO" alias="RoleVO" />
 		<typeAlias type="com.aka.app.member.MemberVO" alias="MemberVO" />
-  	<typeAlias type="com.aka.app.edms.EdmsVO" alias="EdmsVO"/>
-
 	</typeAliases>
 </configuration>
