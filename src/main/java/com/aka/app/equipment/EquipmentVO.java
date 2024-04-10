@@ -1,12 +1,11 @@
 package com.aka.app.equipment;
 
-import java.util.Date;
+
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-import jakarta.validation.constraints.Past;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,6 +16,7 @@ import lombok.ToString;
 public class EquipmentVO {
 	
 	private Long equipment_num;
+	
 	private Long member_id;
 	
 	@NotBlank(message = "비품 이름을 입력해 주세요")
@@ -30,5 +30,8 @@ public class EquipmentVO {
 	
 	
 	private String equipment_contents;
+	
+	
+	
 	
 }

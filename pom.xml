@@ -21,6 +21,13 @@
 
 
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<!-- 버전 삭제 <version>1.18.22</version> -->
+			<scope>provided</scope>
+		</dependency>
+
 		<!--폼 검증-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

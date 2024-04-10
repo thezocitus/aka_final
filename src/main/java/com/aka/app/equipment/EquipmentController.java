@@ -33,6 +33,7 @@ public class EquipmentController {
 			//form 검증 실패시 
 			return "equipment/create";
 		}
+		
 		equipmentVO.setMember_id(1L);
 		int result = equipmentService.createEquiment(equipmentVO);
 		model.addAttribute("msg", "비품 추가 성공");
