@@ -39,6 +39,7 @@ public class MemberService implements UserDetailsService{
 	}
 	
 	public int add(MemberVO memberVO)throws Exception{
+		log.info("회원가입~");
 		// pw -> 암호화
 		memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
 

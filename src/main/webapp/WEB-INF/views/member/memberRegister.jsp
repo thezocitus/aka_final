@@ -140,7 +140,7 @@
               <h4 class="mb-2 fw-bold">회원가입 🚀</h4>
               <br>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="./register" method="POST">
                 <div class="mb-3">
                   <label for="user_id" class="form-label">ID</label>
                   <input
@@ -240,7 +240,7 @@
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100 fw-bold">가입하기</button>
+                <button type="submit" class="btn btn-primary d-grid w-100 fw-bold">가입하기</button>
               </form>
             </div>
           </div>
