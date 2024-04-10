@@ -138,16 +138,16 @@
                 </a>
               </div>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="./login" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="user_id" class="form-label">UserID</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
-                    value="user1"
+                    id="user_id"
+                    name="userId"
+                    placeholder="UserID"
+                    value=user1
                     autofocus
                   />
                 </div>
@@ -166,7 +166,7 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
-                      value=abcd1234
+                      value=pass1234
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
@@ -182,7 +182,7 @@
                 </div>
               </form>
               <div class="mb-3">
-                <a href="memberRegister" class="btn btn-primary d-grid w-100">회원가입</a>
+                <a href="/member/register" class="btn btn-primary d-grid w-100">회원가입</a>
                 <!-- <button class="btn btn-primary d-grid w-100" type="submit">íìê°ì</button> -->
               </div>
               <div class="mx-auto p-2">
