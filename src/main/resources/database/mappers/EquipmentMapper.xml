@@ -14,9 +14,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM EQUIPMENT WHERE EQUIPMENT_NUM = #{equipment_num}
 	</select>
 	
-	<select id="getEquimentList" resultType="EquipmentVO">
+	<select id="getEquimentList" resultType="EquipmentVO" parameterType="Pager">
 	SELECT * FROM EQUIPMENT 
 	ORDER BY EQUIPMENT_NUM DESC 
+	LIMIT #{startIndex},#{perPage}
 	</select>
 
 	

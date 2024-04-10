@@ -49,8 +49,8 @@ public class EquipmentController {
 	}
 	
 	@GetMapping("list")
-	public String getEquimentList (Model model) throws Exception {
-		List<EquipmentVO> list = equipmentService.getEquimentList();
+	public String getEquimentList (Model model,Pager pager) throws Exception {
+		List<EquipmentVO> list = equipmentService.getEquimentList(pager);
 		model.addAttribute("list",list);
 		return "equipment/list";
 	}

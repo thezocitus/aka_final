@@ -13,7 +13,7 @@ public interface EquipmentDAO {
 	
 	public EquipmentVO getEquimentDetail (EquipmentVO equipmentVO) throws Exception;
 	
-	public List<EquipmentVO> getEquimentList ()throws Exception;  
+	public List<EquipmentVO> getEquimentList (Pager pager)throws Exception;  
 	
 	public Long getTotalCount ()throws Exception;
 }

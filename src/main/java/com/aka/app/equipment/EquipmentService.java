@@ -21,7 +21,7 @@ public class EquipmentService {
 		return equipmentDAO.getEquimentDetail(equipmentVO);
 	}
 	
-	public List<EquipmentVO> getEquimentList () throws Exception {
-		return  equipmentDAO.getEquimentList();
+	public List<EquipmentVO> getEquimentList (Pager pager) throws Exception {
+		return  equipmentDAO.getEquimentList(pager);
 	}
 }
