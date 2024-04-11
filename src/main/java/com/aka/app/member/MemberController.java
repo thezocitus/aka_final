@@ -31,6 +31,7 @@ public class MemberController {
 		
 		
 		Object obj=session.getAttribute("SPRING_SECURITY_CONTEXT");
+		log.info("===============obj : {}",obj);
 		log.info("===============memberVO : {}",memberVO);
 		if(obj == null) {
 			return "member/memberLogin";
