@@ -1,13 +1,5 @@
 package com.aka.app.edms;
 
-import org.apache.ibatis.annotations.Mapper;
+public class EdmsDAO {
 
-@Mapper
-public interface EdmsDAO {
-
-	
-	public int createEdms(EdmsVO edmsVO) throws Exception;
-	
-	
-	
 }

@@ -1,24 +1,4 @@
 @charset "UTF-8";
-
-.line::before{
-	content:"";
-	flex-grow:1;
-	margin:8px 16px;
-	background:rgba(0,0,0,0.35);
-	height:1px;
-	font-size:0px;
-	line-height: 0px;
-}
-.line::after {
-	content:"";
-	flex-grow:1;
-	margin:8px 16px;
-	background:rgba(0,0,0,0.35);
-	height:1px;
-	font-size:0px;
-	line-height: 0px;
-}
-
 .authentication-wrapper {
   display: flex;
   flex-basis: 100%;
@@ -43,8 +23,7 @@
   max-width: 400px;
   position: relative;
 }
-
-/*.authentication-wrapper.authentication-basic .authentication-inner:before {
+.authentication-wrapper.authentication-basic .authentication-inner:before {
   width: 148px;
   height: 148px;
   content: " ";
@@ -60,8 +39,7 @@
   position: absolute;
   bottom: -68px;
   left: -46px;
-}*/
-
+}
 .authentication-wrapper.authentication-basic .authentication-inner .card {
   z-index: 1;
 }

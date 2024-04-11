@@ -29,15 +29,8 @@
 
 		<!--spring-jdbc -->
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>		
-
-		<!-- spring-boot-starter-security -->		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
 		</dependency>
 
 		<!-- JSTL -->
@@ -59,11 +52,13 @@
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
 		
-		<dependency>
+				<dependency>
 		    <groupId>org.apache.tomcat.embed</groupId>
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		    <scope>provided</scope>
 		</dependency>
+		
+		
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -91,11 +86,11 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+		<!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -107,33 +102,6 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
-
-<!-- oauth2-client -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
-		
-		<!-- spring-security-taglibs -->
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-taglibs</artifactId>
-		</dependency>
-		
-		<!-- validation -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-validation</artifactId>
-		</dependency>
-		
-		<!-- spring-boot-starter-aop -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-aop</artifactId>
-			<!-- 버전 생략 -->
-		</dependency>
-
-
 	</dependencies>
 
 	<build>
