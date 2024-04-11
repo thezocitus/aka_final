@@ -6,8 +6,7 @@
 	<select id="getDetail" parameterType="MemberVO" resultMap="getDetailResult">
 		SELECT * 
 			FROM MEMBER M
-			INNER JOIN ROLE R
-		WHERE MEMBER_ID = #{member_id}			 
+		WHERE USER_ID = #{user_id}			 
 	</select>
 	
 	<resultMap type="MemberVO" id="getDetailResult">

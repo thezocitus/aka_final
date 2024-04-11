@@ -1,4 +1,4 @@
-package com.winter.app.member.groups;
+package com.aka.app.member.groups;
 
 public interface MemberUpdateGroup {
 
