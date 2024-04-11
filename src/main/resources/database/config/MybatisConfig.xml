@@ -7,9 +7,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<typeAliases>
 
-	<typeAlias type="java.lang.String" alias="String" />
-	<typeAlias type="com.aka.app.edms.EdmsVO" alias="EdmsVO"/>
+		<typeAlias type="java.lang.String" alias="String" />
 		<typeAlias type="com.aka.app.member.RoleVO" alias="RoleVO" />
 		<typeAlias type="com.aka.app.member.MemberVO" alias="MemberVO" />
+		<typeAlias type="com.aka.app.edms.EdmsVO" alias="EdmsVO"/>
+
 	</typeAliases>
 </configuration>
