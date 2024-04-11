@@ -142,11 +142,11 @@
 
               <form id="formAuthentication" class="mb-3" action="./register" method="POST">
                 <div class="mb-3">
-                  <label for="user_id" class="form-label">ID</label>
+                  <label for="userId" class="form-label">ID</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="user_id"
+                    id="userId"
                     name="user_id"
                     placeholder="Enter your id"
                     autofocus
@@ -192,13 +192,13 @@
                   <span class="mb-5" style="color: red;">33333</span>
 
                   <div class="my-3 form-password-toggle">
-                    <label class="form-label" for="password">PasswordCheck</label>
+                    <label class="form-label" for="passwordCheck">PasswordCheck</label>
                     <div class="input-group input-group-merge">
                       <input
                         type="password"
-                        id="password"
+                        id="passwordCheck"
                         class="form-control"
-                        name="password"
+                        name="passwordCheck"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                       />

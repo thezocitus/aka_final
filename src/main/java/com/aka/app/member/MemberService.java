@@ -58,7 +58,7 @@ public class MemberService implements UserDetailsService{
 		// check가 false 면 error  x
 		
 		check = bindingResult.hasErrors();
-		
+		log.info("login 검증");
 		// 비번검증
 		if(!memberVO.getPassword().equals(memberVO.getPasswordCheck())) {
 			check = true;

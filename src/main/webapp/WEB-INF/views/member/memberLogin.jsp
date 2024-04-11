@@ -138,7 +138,7 @@
                 </a>
               </div>
 
-              <form id="formAuthentication" class="mb-3" action="./login" method="POST">
+              <form class="mb-3" action="./login" method="POST">
                 <div class="mb-3">
                   <label for="user_id" class="form-label">UserID</label>
                   <input
@@ -183,7 +183,6 @@
               </form>
               <div class="mb-3">
                 <a href="/member/register" class="btn btn-primary d-grid w-100">회원가입</a>
-                <!-- <button class="btn btn-primary d-grid w-100" type="submit">íìê°ì</button> -->
               </div>
               <div class="mx-auto p-2">
                 <span class="line d-flex justify-content-center">또는</span>
