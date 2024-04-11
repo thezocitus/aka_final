@@ -5,7 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
 <mapper namespace="com.aka.app.edms.EdmsDAO">
 
+	
+<!-- 	<insert id="createEdms" parameterType="EdmsVO">
+	
+		INSERT INTO EDMS (EDMS_NO, EDMS_FORM_NO, EDMS_CREATOR, EDMS_TITLE, EDMS_CONTENT, EDMS_STATUS, EDMS_APPROVAL_DATE, EDMS_CREATE_DATE, EDMS_EXP_DATE, EDMS_USE, EDMS_EXTRA_DATE1, EDMS_EXTRA_DATE2, EDMS_EXTRA_COINTENTS, EDMS_EXTRA_NUMBER, EDMS_CREATOR_POSITION)
+					VALUES(NEXTVAL(EDMS_SEQ), edmsFromNo, edmsCreator, edmsTitle, ,edmsContent, edmsStatus, edmsApplovalDate, edmsCreateDate, edmsExpDate, edms_use, edmsExtraDate1, edmsExtraDate2, edmsExtraContent, edmsExtraNumber, edmsCreatorPosition)
+	</insert> -->
 
+
+	<insert id="createEdms" parameterType="EdmsVO">
+	
+		INSERT INTO EDMS (EDMS_NO, EDMS_FORM_NO, EDMS_CREATOR, EDMS_TITLE, EDMS_CONTENT, EDMS_STATUS)
+					VALUES(NEXTVAL(EDMS_SEQ), #{edmsFromNo}, #{edmsCreator}, #{edmsTitle}, #{edmsContent}, #{edmsStatus})
+	</insert>
 
 
 </mapper>
