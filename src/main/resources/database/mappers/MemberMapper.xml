@@ -48,6 +48,6 @@
 			PROFIL_ORI, 
 			POSITION_ID, 
 			DEPARTMENT_ID)
-		VALUES(3, #{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, 'pass1234', #{username}, #{role_id}, 'key',null,null,1,1);
+		VALUES(#{member_id}, #{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, #{password}, #{username}, #{role_id}, 'key',null,null,1,1);
 	</insert>
 </mapper>

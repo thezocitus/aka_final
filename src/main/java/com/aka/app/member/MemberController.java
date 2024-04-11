@@ -39,12 +39,6 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	@PostMapping("login")
-	public String memberLogin(@Validated MemberVO memberVO, Model model) {
-		
-		return "commons/result";
-	}
-	
 	@GetMapping("register")
 	public String register(@ModelAttribute MemberVO memberVO) throws Exception{
 		

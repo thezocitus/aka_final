@@ -25,7 +25,7 @@ public class MemberService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		MemberVO memberVO = new MemberVO();
-		memberVO.setUser_id("user1");
+		memberVO.setUser_id("user");
 		
 		log.info("로그인~");
 		

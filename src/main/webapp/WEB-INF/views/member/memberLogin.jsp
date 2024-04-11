@@ -137,7 +137,7 @@
                   <span class="app-brand-text demo text-body fw-bolder text-uppercase">A.K.A</span>
                 </a>
               </div>
-
+				
               <form class="mb-3" action="./login" method="POST">
                 <div class="mb-3">
                   <label for="user_id" class="form-label">UserID</label>
@@ -147,7 +147,6 @@
                     id="user_id"
                     name="userId"
                     placeholder="UserID"
-                    value=user1
                     autofocus
                   />
                 </div>
@@ -166,7 +165,6 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
-                      value=pass1234
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
@@ -216,5 +214,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+   	<script type="text/javascript">
+		history.replaceState({}, null, location.pathname);
+	</script>
   </body>
 </html>

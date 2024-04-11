@@ -496,7 +496,9 @@
               </div>
               <!-- /Search -->
 
+			<!-- 로그인했을때 변화 -->
               <ul class="navbar-nav flex-row align-items-center ms-auto">
+              	
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
                   <a
@@ -561,7 +563,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="/member/logout">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
