@@ -6,7 +6,7 @@
 
 
 
- <c:import url="../temp/head.jsp"></c:import>
+ <c:import url="../../temp/head.jsp"></c:import>
  <c:import url="/js/edms/form.css"></c:import>
 
 
@@ -19,7 +19,6 @@
 
 
 
-<form id="formelem">
 
 
 <div style="position: absolute; left: 30%">
@@ -28,7 +27,7 @@
 
 <span style="font-family: &quot;맑은 고딕&quot;; font-size: 10pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;"> 
   
-<div class="row">
+<div class="row" >
 
 	 <div class="col-6 text-center align-self-center">
 		<h1>기안서</h1>
@@ -37,13 +36,12 @@
 	<div class="col-6">
 	 
 	
-	   <button class="addBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addBtn">
- 				결제선 <br> 추가 
- 		</button>
- 
+	 <button type="button" id="appLineAdd"> 버튼</button>
 
 		<div id="appLine" class="appTable" style="float: right;">
-			
+			<div>
+				
+			</div>
 			
 			<div class="col-auto ps-0 pe-0">
 				<div class="applineG">직급</div>
@@ -73,10 +71,10 @@
 	<tbody>
 		<tr>
 			<td class="userTdG">				
-				문서종류 
+				문서번호 
 			</td>
 			<td class="userTdW">	
-				<input type="text" name="edmsFromNo" value="1">
+				<span>문서번호</span>
 			</td>
 			<td class="userTdG">				
  				기&nbsp;안&nbsp;일
@@ -91,7 +89,7 @@
  				작&nbsp;성&nbsp;자
 			</td>
 			<td class="userTdW">	
-				<input type="text" name="edmsCreator" value="666">
+				<span>이름</span>
 			</td>
 				<td class="userTdG">
 				사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번
@@ -123,31 +121,29 @@
   </colgroup> 
   
 	<tbody>
-		<!-- <tr>
+		<tr>
 			<td class="userTdG">	
-				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
+참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
 			<td class="userTdW">		
-				<input>
 			</td>
-		</tr> -->
+		</tr>
 		<tr>
 			<td class="userTdG">		
-				제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
+제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목
 			</td>
 			<td class="userTdW">	
-				<input name="edmsTitle">
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdG" colspan="2">
-				상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
+상&nbsp;&nbsp;세&nbsp;&nbsp;내&nbsp;&nbsp;용
 			</td>
 		</tr>
 		<tr>
 			<td class="userTdW" colspan="2">			
 				<span  style="width: 100%; font-family: &quot;malgun gothic&quot;, dotum, arial, tahoma; font-size: 9pt; line-height: normal; margin-top: 0px; margin-bottom: 0px;">
-				 <textarea id="summernote" name="edmsContent"></textarea>	
+				 <div id="summernote"></div>	
 				
 			
 				</span> 
@@ -169,13 +165,11 @@
   
 	<tbody>
 		<tr>
-			<td class="userTdG" style="height: auto;">	
-				첨&nbsp;&nbsp;부&nbsp;&nbsp;파&nbsp;&nbsp;일
+			<td class="userTdG">	
+				참&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조
 			</td>
-			<td class="userTdW" style="height: auto;">		
-				<div id="fileUploadList" style="float: left;">
-				</div>
-				 <input type="file" id="file" name="file" multiple="multiple">
+			<td class="userTdW">		
+			
 			</td>
 		</tr>
 	
@@ -183,19 +177,12 @@
 
 </table>
 
-<br>
-<div style="float: right;">
-<button type="submit" class="btn btn-success" id="applyBtn">제출</button>
-<button type="button" class="btn btn-warning">임시저장</button>
-</div>
 
 
 </span></span>
 <p style="font-family: &quot;맑은 고딕&quot;; font-size: 10pt; line-height: 20px; margin-top: 0px; margin-bottom: 0px;"><br></p>
 
 </div>
-
-</form>
 
 
 
@@ -250,99 +237,38 @@
     </script>
 
 
+
+
+
 <script>
 
-	const addBtn = document.getElementById("addBtn"); //모달 여는 버튼
+
+
+	const addbtn = document.getElementById("addBtn"); //모달 여는 버튼
 	const appBtn = document.getElementById("appBtn"); //모달 확인버튼
-	const myModal = document.getElementById('myModal');
-	const myInput = document.getElementById('myInput');
-	const applyBtn = document.getElementById('applyBtn');
-	const formelem = document.getElementById('formelem');
+	const myModal = document.getElementById('myModal')
+	const myInput = document.getElementById('myInput')
 
 	
 
+	let temp = ``;
+
 	
-	//모달 불러오는 함수
-	addBtn.addEventListener('shown.bs.modal',function(){		
-		
-		console.log("1qewqeq");
+	모달 불러오는 함수
+	addbtn.addEventListener('shown.bs.modal',function(){		
 		
 		myInput.focus()		
 
-	});
+	})
 
 	
-	//파일 업로드
-	
-	// const dataTranster = new DataTransfer()
-	
-	
-	
-	// let files= [];
-	
-	// inputFile.onchange=()=>{			
-	// 	/* files.push(inputFile.files); */
-	// 	/* fileUploadList.innerText =+ files[0].name; */
-			
-	// 	Array.from(files)
-	//     .filter(file => file.lastModified != removeTargetId)
-	//     .forEach(file => {
-	//         dataTranster.items.add(file);
-	//     });
-
-	// 	document.querySelector('#file-input').files = dataTranster.files;
-	// 	console.log( dataTranster.files);
-		
-	// }
-	
-	let ar = new Array();
-	
-	ar.push("a");
-	ar.push("b");
-
-	applyBtn.addEventListener('click',function(e){	
-		e.preventDefault();
-		if(confirm('제출하시겠습니까??')){			
-			let formData = new FormData(formelem);
-			
-			//배열생성후 formdata에 값 추가
-			ar.forEach((vlaue, index) => {
-				
-				formData.append("ar",vlaue);
-
-			})
-			for(const key of formData.keys()){
-
-				console.log(key);
-			}
-
-			fetch("apply",{
-				method: "POST",						
-				body: formData				
-				}).then(response => response.json())
-				.then(response=>check(response));							
-			}else{
-				alert("놉");
-			}		
+	appBtn.addEventListener('click',()=>{		
 	})
 	
-		// applyBtn.addEventListener('click', function(e){
-		// 	e.preventDefault;
-		// 	formelem.setAttribute("action","apply");
-		// 	formelem.setAttribute("method","post");
-		// 	formelem.setAttribute("enctype","multipart/form-data");
-		// 	formelem.submit();
+	
+	
+	
 
-		// })
-
-
-	function check(result){
-
-		console.log(result.edmsTitle)
-		console.log(result);
-		alert(result.result);
-
-	}
 
 
 </script>

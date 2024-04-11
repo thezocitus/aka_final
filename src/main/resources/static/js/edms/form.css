@@ -1,0 +1,140 @@
+<style>
+
+.infotable{
+	 border: 0px solid rgb(0, 0, 0);
+	 width: 800px; 
+	 font-family: malgun gothic, dotum, arial, tahoma; 
+	 margin-top: 1px; 
+	 border-collapse: collapse;
+}
+
+.userTable{
+	border: 1px solid rgb(0, 0, 0);
+	 font-family: &quot;
+	 malgun gothic&quot;, 
+	 dotum, arial, tahoma; 
+	 margin-top: 3px; 
+	 border-collapse: collapse;
+	 width: 800px;
+
+}
+
+.userTdG{
+	background: rgb(221, 221, 221); 
+	padding: 5px; 
+	border: 1px solid black; 
+	height: 18px; 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 12px; 
+	font-weight: bold; 
+	vertical-align: middle;
+
+
+}
+.userTdW{
+	background: rgb(255, 255, 255); 
+	padding: 5px; 
+	border: 1px solid black; 
+	height: 18px; 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 12px; 
+	font-weight: bold; 
+	vertical-align: middle;
+}
+.contentsTable{
+	border: 2px solid; 
+	width: 800px; 
+	font-family: &quot;
+	malgun gothic&quot;, dotum, arial, tahoma; 
+	margin-top: 10px; 
+	border-collapse: collapse; 
+	height: auto;
+
+
+}
+
+.applineG{
+	background: rgb(221, 221, 221);
+	border: 1px solid black; 
+	padding: 1px; 
+	height: 25px; 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 12px; 
+	vertical-align: middle;	
+	border-collapse: collapse;
+	
+}
+
+.applineW{
+	background: rgb(255, 255, 255);
+	border: 1px solid black;
+	padding: 10px;  	
+	width : 65px;
+	height: 50px;	
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 15px; 
+	vertical-align: middle;	
+	border-collapse: collapse;
+	
+	
+	
+}
+
+.appTable{
+	border: 0px solid rgb(0, 0, 0);	 
+	font-family: malgun gothic, dotum, arial, tahoma; 
+	margin-top: 1px; 
+    display : table;
+	 
+	 }
+
+.addbtn{
+	background: rgb(221, 221, 221); 
+	padding: 5px; 
+	border: 1px solid black; 	 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	font-size: 12px; 
+	font-weight: bold; 
+	vertical-align: middle;
+	writing-mode: vertical-lr;
+
+}
+
+
+
+.contentsTable{
+	border: 2px solid; 
+	width: 800px; 
+	font-family: &quot;
+	malgun gothic&quot;, dotum, arial, tahoma; 
+	margin-top: 10px; 
+	border-collapse: collapse; 
+	height: auto;
+}
+
+.addlist{
+
+	width: 800px; 
+	font-family: &quot;
+	malgun gothic&quot;, dotum, arial, tahoma; 
+	margin-top: 10px; 
+	border-collapse: collapse; 
+	height: auto;
+
+
+}
+
+input{
+	
+	width:100%; 
+	border: 0;
+}
+
+
+</style>
+

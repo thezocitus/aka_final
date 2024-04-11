@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -27,7 +29,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>회원가입</title>
 
     <meta name="description" content="" />
 
@@ -70,7 +72,7 @@
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
-          <!-- Register -->
+          <!-- Register Card -->
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
@@ -134,26 +136,48 @@
                   <span class="app-brand-text demo text-body fw-bolder text-uppercase">A.K.A</span>
                 </a>
               </div>
+              <!-- /Logo -->
+              <h4 class="mb-2 fw-bold">회원가입 🚀</h4>
+              <br>
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="user_id" class="form-label">ID</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
+                    id="user_id"
+                    name="user_id"
+                    placeholder="Enter your id"
+                    autofocus
+                  />
+                  <span style="color: red;">1111111</span>
+                </div>
+                                <div class="mb-3">
+                  <label for="username" class="form-label">NAME</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
                     autofocus
                   />
                 </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label><br>
+                  <input type="text" class="form-control w-auto d-inline" id="email" name="email" placeholder="Enter your email" />
+                    <select class="form-select w-auto float-end" aria-label="Default select example">
+                      <option selected>직접입력</option>
+                      <option value="1">@naver.com</option>
+                      <option value="2">@gmail.com</option>
+                      <option value="3">@daum.net</option>
+                    </select>
+                  <br>
+                  <span style="color: red">22222</span>
+                </div>
                 <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
+                  <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -165,33 +189,69 @@
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
+                  <span class="mb-5" style="color: red;">33333</span>
+
+                  <div class="my-3 form-password-toggle">
+                    <label class="form-label" for="password">PasswordCheck</label>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        name="password"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password"
+                      />
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    </div>
+                    <span class="mb-5" style="color: red;">44444</span>
                 </div>
+                <div class="mb-3">
+                  <label for="id" class="form-label">TELEPHONE</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your Phone ( -없이 숫자만 입력)"
+                    autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                 	<label class="form-label" for="address">ADDRESS</label><br>
+					<input class="form-control w-50 float-start" type="text" id="sample2_postcode" placeholder="우편번호">
+					<input class="form-control w-50 float-start" type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input class="form-control" type="text" id="sample2_address" placeholder="주소"><br>
+					<input class="form-control" type="text" id="sample2_detailAddress" placeholder="상세주소">
+					<input class="form-control" type="text" id="sample2_extraAddress" placeholder="참고항목" hidden>
+					
+					<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+					<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+					</div>
+                </div>
+                <br>
+
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                    <label class="form-check-label" for="terms-conditions">
+                      약관동의
+                    </label>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">로그인</button>
-                </div>
+                <button class="btn btn-primary d-grid w-100 fw-bold">가입하기</button>
               </form>
-              <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" type="submit">회원가입</button>
-              </div>
-              <div class="mx-auto" style="width:300px; padding: 1px;">
-                <span>-또는-</span>
-              </div>
-              <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
-              </div>
             </div>
           </div>
-          <!-- /Register -->
+          <!-- Register Card -->
         </div>
       </div>
     </div>
 
+
+    <!-- / Content -->
+	
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
@@ -211,5 +271,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+   	<!-- address api -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript" src="../js/member/memberRegister.js"></script>
   </body>
 </html>
