@@ -4,7 +4,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+	<settings>
+		<!-- 스네이크 케이스 => 카멜케이스 -->
+		<setting name="mapUnderscoreToCamelCase" value=" true"/>			
+	</settings>
 	<typeAliases>
 	<typeAlias type="java.lang.String" alias="String" />
+	<typeAlias type="com.aka.app.edms.EdmsVO" alias="EdmsVO"/>
+
 	</typeAliases>
 </configuration>
