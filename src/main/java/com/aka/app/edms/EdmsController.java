@@ -12,6 +12,8 @@ public class EdmsController {
 	
 	@GetMapping("pro/list")
 	public String getProlist() {
+		   
+		
 		
 		return "EDMS/prolist";
 		
