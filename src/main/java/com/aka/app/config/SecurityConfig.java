@@ -2,8 +2,6 @@ package com.aka.app.config;
 
 
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.logout;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +31,6 @@ public class SecurityConfig {
 	@Autowired
 	private SecurityLoginFailureHandler loginFailureHandler;
 
-
-
-@Configuration
-@EnableWebSecurity
-@Slf4j
-public class SecurityConfig {
-
-//	@Autowired
-//	private MemberService memberService;
-	
-	@Autowired
-	private SecurityLoginSuccessHandler loginSuccessHandler;
-	
-	@Autowired
-	private SecurityLoginFailureHandler loginFailureHandler;
 	
 	@Bean
 	WebSecurityCustomizer webSecurityCustomizer() throws Exception{
@@ -118,18 +101,5 @@ public class SecurityConfig {
 		// password 암호화 해주는 객체
 		return new BCryptPasswordEncoder();
 	}
-	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
