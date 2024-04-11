@@ -87,23 +87,25 @@
               <nav aria-label="Page navigation">
                 <ul class="pagination">
 
+                <c:if test="${!start}">
                   <li class="page-item first">
-                    <a class="page-link" href="javascript:void(0);" ><i class="tf-icon bx bx-chevrons-left"></i></a>
+                    <a class="page-link" href="./list?page=1" ><i class="tf-icon bx bx-chevrons-left"></i></a>
                   </li>
-                  <li class="page-item prev">
-                    <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-left"></i></a>
-                  </li>
+                  <li class="page-item prev"> <a class="page-link" href="./list?page=${pager.page-1}"><i class="tf-icon bx bx-chevron-left"></i></a> </li>
+                </c:if> 
                   
-                  <li class="page-item">
-                    <a class="page-link" href="javascript:void(0);">1</a>
-                  </li>
+                  <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+                  <li class="page-item"> <a class="page-link" href="./list?page=${i}">${i}</a> </li>
+                  </c:forEach>
   
+  							
                   <li class="page-item next">
-                    <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevron-right"></i></a>
+                    <a class="page-link" href="./list?page=${pager.page+1}"><i class="tf-icon bx bx-chevron-right"></i></a>
                   </li>
                   <li class="page-item last">
-                    <a class="page-link" href="javascript:void(0);"><i class="tf-icon bx bx-chevrons-right"></i></a>
+                    <a class="page-link" href="./list?page=${pager.lastNum}"><i class="tf-icon bx bx-chevrons-right"></i></a>
                   </li>
+  			
                 </ul>
               </nav>
 

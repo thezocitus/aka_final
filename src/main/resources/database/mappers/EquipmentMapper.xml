@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<select id="getTotalCount" resultType="Long" parameterType="Pager">
-	SELECT COUNT(*) FROM EQUIPMENT
+	SELECT COUNT(EQUIPMENT_NUM) FROM EQUIPMENT
 	</select>
 
 </mapper>

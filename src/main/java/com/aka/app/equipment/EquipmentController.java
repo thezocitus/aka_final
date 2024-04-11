@@ -33,7 +33,6 @@ public class EquipmentController {
 			//form 검증 실패시 
 			return "equipment/create";
 		}
-		
 		equipmentVO.setMember_id(1L);
 		int result = equipmentService.createEquiment(equipmentVO);
 		model.addAttribute("msg", "비품 추가 성공");
@@ -52,6 +51,7 @@ public class EquipmentController {
 	public String getEquimentList (Model model,Pager pager) throws Exception {
 		List<EquipmentVO> list = equipmentService.getEquimentList(pager);
 		model.addAttribute("list",list);
+		model.addAttribute("pager",pager);
 		return "equipment/list";
 	}
 }

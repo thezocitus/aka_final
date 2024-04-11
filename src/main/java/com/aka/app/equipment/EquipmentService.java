@@ -22,6 +22,8 @@ public class EquipmentService {
 	}
 	
 	public List<EquipmentVO> getEquimentList (Pager pager) throws Exception {
+		pager.makeIndex();
+		pager.makeNum(equipmentDAO.getTotalCount());
 		return  equipmentDAO.getEquimentList(pager);
 	}
 }
