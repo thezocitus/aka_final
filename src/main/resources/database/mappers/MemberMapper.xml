@@ -26,13 +26,28 @@
 		<result column="PROFIL_ORI" property="profil_ori"/>
 		<result column="POSITION_ID" property="position_id"/>
 		
-		<association property="roleVO" javaType="RoleVO">
+<!-- 		<association property="roleVO" javaType="RoleVO">
 			<result column="NAME" property="NAME"/>
-		</association>
+		</association> -->
 	</resultMap>
 	
 	<insert id="add" parameterType="MemberVO">
-		INSERT INTO MEMBER 
-		VALUES (#{username}, #{password}, #{phone}, #{email}, #{address}, #{name})
+		INSERT INTO MEMBER
+			(MEMBER_ID, 
+			EMAIL, 
+			HIRE_DATE, 
+			RETIRE_DATE, 
+			PHONE, 
+			ADDRESS, 
+			USER_ID, 
+			PASSWORD, 
+			USERNAME, 
+			ROLE_ID, 
+			CUSTOMER_KEY, 
+			PROFIL, 
+			PROFIL_ORI, 
+			POSITION_ID, 
+			DEPARTMENT_ID)
+		VALUES(3, #{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, 'pass1234', #{username}, #{role_id}, 'key',null,null,1,1);
 	</insert>
 </mapper>

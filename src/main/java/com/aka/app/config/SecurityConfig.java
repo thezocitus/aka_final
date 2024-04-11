@@ -60,7 +60,7 @@ public class SecurityConfig {
 				.formLogin(
 							(login)->
 									login	
-									.loginPage("/login")
+									.loginPage("/member/login")
 									.successHandler(loginSuccessHandler)
 									.usernameParameter("user_id") 
 									.defaultSuccessUrl("/")
@@ -74,7 +74,7 @@ public class SecurityConfig {
 							(logout)->
 									logout
 										.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-										.logoutSuccessUrl("/member/login")
+										.logoutSuccessUrl("/")
 										.invalidateHttpSession(true) // 로그아웃 성공시 session만료
 										.permitAll()
 						)// 로그아웃 끝 부분
