@@ -25,12 +25,13 @@ public class MemberService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		MemberVO memberVO = new MemberVO();
-		memberVO.setUsername(username);
+		memberVO.setUser_id("user1");
 		
 		log.info("로그인~");
 		
 		try {
 			memberVO = memberDAO.getDetail(memberVO);
+			log.info("=={}==",memberVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,7 +59,7 @@ public class MemberService implements UserDetailsService{
 		// check가 false 면 error  x
 		
 		check = bindingResult.hasErrors();
-		log.info("login 검증");
+		log.info("회원가입 검증");
 		// 비번검증
 		if(!memberVO.getPassword().equals(memberVO.getPasswordCheck())) {
 			check = true;
