@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aka.app.member.MemberDAO">
 	<select id="getDetail" parameterType="MemberVO" resultMap="getDetailResult">
 		SELECT * 
 			FROM MEMBER M
-			INNER JOIN ROLE R
-		WHERE MEMBER_ID = #{member_id}			 
+		WHERE USER_ID = #{user_id}			 
 	</select>
 	
 	<resultMap type="MemberVO" id="getDetailResult">
@@ -28,8 +26,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="PROFIL_ORI" property="profil_ori"/>
 		<result column="POSITION_ID" property="position_id"/>
 		
-		<association property="roleVO" javaType="RoleVO">
+<!-- 		<association property="roleVO" javaType="RoleVO">
 			<result column="NAME" property="NAME"/>
-		</association>
+		</association> -->
 	</resultMap>
+	
+	<insert id="add" parameterType="MemberVO">
+		INSERT INTO MEMBER
+			(MEMBER_ID, 
+			EMAIL, 
+			HIRE_DATE, 
+			RETIRE_DATE, 
+			PHONE, 
+			ADDRESS, 
+			USER_ID, 
+			PASSWORD, 
+			USERNAME, 
+			ROLE_ID, 
+			CUSTOMER_KEY, 
+			PROFIL, 
+			PROFIL_ORI, 
+			POSITION_ID, 
+			DEPARTMENT_ID)
+		VALUES(3, #{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, 'pass1234', #{username}, #{role_id}, 'key',null,null,1,1);
+	</insert>
 </mapper>
