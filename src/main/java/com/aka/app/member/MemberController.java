@@ -28,18 +28,11 @@ public class MemberController {
 	@GetMapping("login")
 	public String memberLogin(@ModelAttribute MemberVO memberVO, HttpSession session)throws Exception {
 		
-		Object obj=(session.getAttribute("SPRING_SECURITY_CONTEXT"));
-		log.info("================login obj : {}",obj);
+		
+		Object obj=session.getAttribute("SPRING_SECURITY_CONTEXT");
 		log.info("===============memberVO : {}",memberVO);
 		if(obj == null) {
 			return "member/memberLogin";
-		}
-		
-		SecurityContextImpl contextImpl = (SecurityContextImpl)obj;
-		String  user = contextImpl.getAuthentication().getPrincipal().toString();
-		log.info("===============principal : {}",user);
-		if(user.equals("annonymousUser")) {
-			return "가나다라";
 		}
 		
 		return "redirect:/";

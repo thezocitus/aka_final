@@ -1,5 +1,7 @@
 package com.aka.app.config;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,10 +13,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.aka.app.member.MemberService;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @EnableWebSecurity
+@Slf4j
 public class SecurityConfig {
 
 //	@Autowired
@@ -41,7 +44,7 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain filterChain (HttpSecurity security) throws Exception {
 		
-
+		log.info("security config");
 		security
 				//CSRF 추가
 				.csrf(
@@ -57,7 +60,7 @@ public class SecurityConfig {
 				.formLogin(
 							(login)->
 									login	
-									.loginPage("/member/login")
+									.loginPage("/login")
 									.successHandler(loginSuccessHandler)
 									.usernameParameter("user_id") 
 									.defaultSuccessUrl("/")
