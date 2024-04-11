@@ -37,7 +37,7 @@
 	<div class="col-6">
 	 
 	
-	   <button class="addBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addBtn">
+	   <button class="addLineBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addLineBtn">
  				결제선 <br> 추가 
  		</button>
  
@@ -252,8 +252,8 @@
 
 <script>
 
-	const addBtn = document.getElementById("addBtn"); //모달 여는 버튼
-	const appBtn = document.getElementById("appBtn"); //모달 확인버튼
+	const addLineBtn = document.getElementById("addLineBtn"); //모달 여는 버튼
+	const addBtn = document.getElementById("addBtn"); //모달 확인버튼
 	const myModal = document.getElementById('myModal');
 	const myInput = document.getElementById('myInput');
 	const applyBtn = document.getElementById('applyBtn');
@@ -263,7 +263,7 @@
 
 	
 	//모달 불러오는 함수
-	addBtn.addEventListener('shown.bs.modal',function(){		
+	addLineBtn.addEventListener('shown.bs.modal',function(){		
 		
 		console.log("1qewqeq");
 		
