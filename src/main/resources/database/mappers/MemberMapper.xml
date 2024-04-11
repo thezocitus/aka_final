@@ -33,8 +33,7 @@
 	
 	<insert id="add" parameterType="MemberVO">
 		INSERT INTO MEMBER
-			(MEMBER_ID, 
-			EMAIL, 
+			(EMAIL, 
 			HIRE_DATE, 
 			RETIRE_DATE, 
 			PHONE, 
@@ -48,6 +47,6 @@
 			PROFIL_ORI, 
 			POSITION_ID, 
 			DEPARTMENT_ID)
-		VALUES(3, #{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, 'pass1234', #{username}, #{role_id}, 'key',null,null,1,1);
+		VALUES(#{email}, NOW(), NOW(),#{phone}, #{address}, #{user_id}, #{password}, #{username}, #{role_id}, 'key',null,null,1,1);
 	</insert>
 </mapper>

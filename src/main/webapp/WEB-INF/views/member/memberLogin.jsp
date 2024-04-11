@@ -147,7 +147,6 @@
                     id="user_id"
                     name="userId"
                     placeholder="UserID"
-                    value=user1
                     autofocus
                   />
                 </div>
@@ -166,7 +165,6 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
-                      value=pass1234
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
