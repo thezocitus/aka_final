@@ -1,6 +1,7 @@
 package com.aka.app.edms;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,12 +58,14 @@ public class EdmsController {
 	
 	@PostMapping("apply")
 	@ResponseBody
-	public Map<String, Object> apply( EdmsVO edmsVO, Model model, MultipartFile[] file) throws Exception {		
+	public Map<String, Object> apply(String [] ar, EdmsVO edmsVO, Model model, MultipartFile[] file) throws Exception {		
 
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		
-		
+		 
+		System.out.println("edms65 AR   "+ar.length);
+		System.out.println("edms65 AR   "+ar[0]);
+		System.out.println(edmsVO.getEdmsContent());
 		//기안서 파일을 저장
 		if(file!=null) {
 			

@@ -2,6 +2,7 @@ package com.aka.app.edms;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import lombok.Data;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class EdmsVO {
 	private String edmsExtraContent;
 	private Long edmsExtraNumber;
 	private String edmsCreatorPosition;	
+
 	
 	private List<FileVO> fileVOs; 
 	

@@ -295,18 +295,32 @@
 		
 	// }
 	
+	let ar = new Array();
 	
-	applyBtn.addEventListener('click',function(e){
-		console.log("메로에몰");
+	ar.push("a");
+	ar.push("b");
+
+	applyBtn.addEventListener('click',function(e){	
 		e.preventDefault();
 		if(confirm('제출하시겠습니까??')){			
-			let form1 = new FormData(formelem);
+			let formData = new FormData(formelem);
+			
+			//배열생성후 formdata에 값 추가
+			ar.forEach((vlaue, index) => {
+				
+				formData.append("ar",vlaue);
+
+			})
+			for(const key of formData.keys()){
+
+				console.log(key);
+			}
+
 			fetch("apply",{
 				method: "POST",						
-				body: form1				
+				body: formData				
 				}).then(response => response.json())
-				.then(response=>check(response));
-							
+				.then(response=>check(response));							
 			}else{
 				alert("놉");
 			}		
