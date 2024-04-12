@@ -21,18 +21,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/")
-	public String test (Model model) {
-		return "temp/sample";
-	}
-	
 	@GetMapping("login")
-	public String memberLogin(@ModelAttribute MemberVO memberVO, HttpSession session)throws Exception {
+	public String memberLogin(@ModelAttribute MemberVO memberVO, HttpSession session, Model model)throws Exception {
 		
 		
 		Object obj=session.getAttribute("SPRING_SECURITY_CONTEXT");
 		log.info("===============obj : {}",obj);
 		log.info("===============memberVO : {}",memberVO);
+		session.setAttribute("user", memberVO);
 		if(obj == null) {
 			return "member/memberLogin";
 		}

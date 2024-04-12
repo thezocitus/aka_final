@@ -2,8 +2,6 @@ package com.aka.app.config;
 
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.aka.app.member.MemberService;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
@@ -22,8 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SecurityConfig {
 
-//	@Autowired
-//	private MemberService memberService;
+	@Autowired
+	private MemberService memberService;
 	
 	@Autowired
 	private SecurityLoginSuccessHandler loginSuccessHandler;
@@ -61,19 +61,18 @@ public class SecurityConfig {
 											)
 											
 				.formLogin(
-							(login)->
-									login	
-									.loginPage("/member/login")
-									.successHandler(loginSuccessHandler)
-									.usernameParameter("user_id") 
-									.defaultSuccessUrl("/")
-									.failureHandler(loginFailureHandler)
-									
-									.permitAll()
+						(login)->
+								login	
+								.loginPage("/member/login")
+								.successHandler(loginSuccessHandler)
+								.usernameParameter("userId") 
+								.defaultSuccessUrl("/")
+								.failureHandler(loginFailureHandler)
+								
+								.permitAll()
 
-									
 						)// 로그인 끝부분
-				.logout(
+						.logout(
 							(logout)->
 									logout
 										.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
@@ -81,25 +80,35 @@ public class SecurityConfig {
 										.invalidateHttpSession(true) // 로그아웃 성공시 session만료
 										.permitAll()
 						)// 로그아웃 끝 부분
-				.sessionManagement(
-						(sessionManagement)->
-							sessionManagement
-								.maximumSessions(1)
-								.maxSessionsPreventsLogin(false)
-								.expiredUrl("/expired")
-								
-				)//sessionManagement 끝
-				;	
-		
-		
+						.rememberMe(
+								(rememberMe ->
+									rememberMe
+										.rememberMeParameter("rememberMe")
+										.tokenValiditySeconds(600)				// 초단위
+										.key("rememberMe")
+										.userDetailsService(memberService)
+										.authenticationSuccessHandler(loginSuccessHandler)
+										.useSecureCookie(false)
+								)		
+						)// rememberMe 끝부분
+						.sessionManagement(
+							(sessionManagement)->
+								sessionManagement								
+									.maximumSessions(1)
+									.maxSessionsPreventsLogin(true)		// true 이면 같은아이디로 로그인되어있으면 로그인을 거부/ false 로그인된 사용자 세션 만료
+									.expiredUrl("/expired")
+						)//sessionManagement 끝
+//						.oauth2Login(
+//								(oauth2Login) -> 
+//								oauth2Login.userInfoEndpoint(
+//										(ue) -> ue.userService(memberService)
+//							)
+//						)//oauth2Login 끝
+						;
 		
 		return security.build();
 	}
 	
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		// password 암호화 해주는 객체
-		return new BCryptPasswordEncoder();
-	}
+
 	
 }

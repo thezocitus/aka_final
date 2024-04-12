@@ -497,6 +497,8 @@
               <!-- /Search -->
 
 			<!-- 로그인했을때 변화 -->
+			<span>${user}</span>
+			<c:if test="${user}">
               <ul class="navbar-nav flex-row align-items-center ms-auto">
               	
                 <!-- Place this tag where you want the button to render. -->
@@ -570,6 +572,7 @@
                     </li>
                   </ul>
                 </li>
+                </c:if>
                 <!--/ User -->
               </ul>
             </div>
