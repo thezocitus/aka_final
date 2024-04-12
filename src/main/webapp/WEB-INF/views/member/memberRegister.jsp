@@ -219,7 +219,7 @@
                 </div>
                 <div class="mb-3">
                  	<label class="form-label" for="address">ADDRESS</label><br>
-					<input class="form-control w-50 float-start" type="text" id="sample2_postcode" placeholder="우편번호">
+					<input class="form-control w-50 float-start" type="text" id="address" placeholder="우편번호">
 					<input class="form-control w-50 float-start" type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
 					<input class="form-control" type="text" id="sample2_address" placeholder="주소"><br>
 					<input class="form-control" type="text" id="sample2_detailAddress" placeholder="상세주소">
