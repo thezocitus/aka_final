@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 
 
@@ -496,9 +498,9 @@
               </div>
               <!-- /Search -->
 
+
 			<!-- 로그인했을때 변화 -->
-			<span>${user}</span>
-			<c:if test="${user}">
+			
               <ul class="navbar-nav flex-row align-items-center ms-auto">
               	
                 <!-- Place this tag where you want the button to render. -->
@@ -572,8 +574,9 @@
                     </li>
                   </ul>
                 </li>
-                </c:if>
-                <!--/ User -->
+            <!-- 로그인 했을때 -->
+                
+            <!--/ User -->
               </ul>
             </div>
           </nav>

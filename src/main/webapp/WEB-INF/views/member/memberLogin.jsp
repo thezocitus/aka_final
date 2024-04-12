@@ -186,7 +186,9 @@
                 <span class="line d-flex justify-content-center">또는</span>
               </div>
               <div class="mb-3">
-                <button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
+              	<a href="/oauth2/authorization/kakao">
+                	<button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
+                </a>
               </div>
             </div>
           </div>
