@@ -8,11 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.AnyRequestMatcher;
 
 import com.aka.app.member.MemberService;
 
@@ -32,6 +29,7 @@ public class SecurityConfig {
 	@Autowired
 	private SecurityLoginFailureHandler loginFailureHandler;
 
+	
 	
 	@Bean
 	WebSecurityCustomizer webSecurityCustomizer() throws Exception{
@@ -57,10 +55,11 @@ public class SecurityConfig {
 				)
 				.authorizeHttpRequests(
 						(authorizeRequests)->
-											authorizeRequests.
-											requestMatchers("/member/**").permitAll()
-//											.requestMatchers("/member/login").permitAll()
-					                        .anyRequest().authenticated()
+											authorizeRequests
+											.requestMatchers("/member/**").permitAll()
+											.requestMatchers("/").hasRole("ADMIN")
+//											.anyRequest().permitAll()
+							                .anyRequest().authenticated()
 //											.requestMatchers("/member/login, /member/register").permitAll()
 											)
 				
