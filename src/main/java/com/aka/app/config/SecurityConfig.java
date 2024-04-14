@@ -30,7 +30,6 @@ public class SecurityConfig {
 	private SecurityLoginFailureHandler loginFailureHandler;
 
 	
-	
 	@Bean
 	WebSecurityCustomizer webSecurityCustomizer() throws Exception{
 		return web -> web
@@ -56,10 +55,10 @@ public class SecurityConfig {
 				.authorizeHttpRequests(
 						(authorizeRequests)->
 											authorizeRequests
-											.requestMatchers("/member/**").permitAll()
-											.requestMatchers("/").hasRole("ADMIN")
+											.requestMatchers("/**").permitAll()
+											.anyRequest().authenticated()
 //											.anyRequest().permitAll()
-							                .anyRequest().authenticated()
+//							                .anyRequest().authenticated()
 //											.requestMatchers("/member/login, /member/register").permitAll()
 											)
 				
@@ -80,7 +79,7 @@ public class SecurityConfig {
 							(logout)->
 									logout
 										.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
-										.logoutSuccessUrl("/")
+										.logoutSuccessUrl("/member/login")
 										.invalidateHttpSession(true) // 로그아웃 성공시 session만료
 										.permitAll()
 						)// 로그아웃 끝 부분
