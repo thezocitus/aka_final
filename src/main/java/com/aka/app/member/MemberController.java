@@ -21,6 +21,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("*")
+	public String loginCheck() {
+		return "member/first";
+	}
+	
 	@GetMapping("login")
 	public String memberLogin(@ModelAttribute MemberVO memberVO, HttpSession session, Model model)throws Exception {
 		
@@ -29,16 +34,21 @@ public class MemberController {
 		log.info("===============obj : {}",obj);
 		log.info("===============memberVO : {}",memberVO);
 		session.setAttribute("user", memberVO);
+		
+		log.info("user session ===> {}",session.getAttribute("user"));
 		if(obj == null) {
 			return "member/memberLogin";
 		}
 		
+	//	return "member/memberLogin";
 		return "redirect:/";
 	}
 	
 	@GetMapping("register")
 	public String register(@ModelAttribute MemberVO memberVO) throws Exception{
-		
+		if(memberVO != null) {
+			return "redirect:/";
+		}
 		return "member/memberRegister";
 	}
 	

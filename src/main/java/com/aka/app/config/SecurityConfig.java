@@ -40,6 +40,7 @@ public class SecurityConfig {
 						.requestMatchers("/libs/**")
 						.requestMatchers("/scss/**")
 						.requestMatchers("/tasks/**");
+		
 	}
 	
 	@Bean
@@ -55,14 +56,13 @@ public class SecurityConfig {
 				.authorizeHttpRequests(
 						(authorizeRequests)->
 											authorizeRequests
-											.requestMatchers("/**").permitAll()
-											.anyRequest().authenticated()
-//											.anyRequest().permitAll()
-//							                .anyRequest().authenticated()
-//											.requestMatchers("/member/login, /member/register").permitAll()
+											.requestMatchers("/", "/login**", "/edms/**").authenticated()
+//											.requestMatchers("/member/login", "/member/register").permitAll()
+//											.requestMatchers("/").permitAll()
+//											.requestMatchers("/member/login").permitAll()
+											.anyRequest().permitAll()
 											)
 				
-											
 				.formLogin(
 						(login)->
 								login	
@@ -81,6 +81,7 @@ public class SecurityConfig {
 										.logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
 										.logoutSuccessUrl("/member/login")
 										.invalidateHttpSession(true) // 로그아웃 성공시 session만료
+										.deleteCookies("JSESSIONID")
 										.permitAll()
 						)// 로그아웃 끝 부분
 						.rememberMe(
@@ -101,12 +102,12 @@ public class SecurityConfig {
 									.maxSessionsPreventsLogin(true)		// true 이면 같은아이디로 로그인되어있으면 로그인을 거부/ false 로그인된 사용자 세션 만료
 									.expiredUrl("/expired")
 						)//sessionManagement 끝
-//						.oauth2Login(
-//								(oauth2Login) -> 
-//								oauth2Login.userInfoEndpoint(
-//										(ue) -> ue.userService(memberService)
-//							)
-//						)//oauth2Login 끝
+						.oauth2Login(
+								(oauth2Login) -> 
+								oauth2Login.userInfoEndpoint(
+										(ue) -> ue.userService(memberService)
+							)
+						)//oauth2Login 끝
 						;
 		
 		return security.build();
