@@ -19,8 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<where>
 	<choose>
 	<when test="kind=='kind1'">EQUIPMENT_NAME</when>
-	<when test="kind=='kind2'">MEMBER_ID</when>
-	<otherwise>EQUIPMENT_NUM</otherwise>
+	<when test="kind=='kind2'">EQUIPMENT_NUM</when>
+	<otherwise>MEMBER_ID</otherwise>
 	</choose>
 	LIKE CONCAT('%',#{search},'%')
 	</where>
@@ -37,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getTotalCount" resultType="Long" parameterType="Pager">
 	SELECT COUNT(EQUIPMENT_NUM) FROM EQUIPMENT
+	<include refid="search"></include>
 	</select>
 
 </mapper>
