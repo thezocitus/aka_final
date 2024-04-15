@@ -14,8 +14,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM EQUIPMENT WHERE EQUIPMENT_NUM = #{equipment_num}
 	</select>
 	
+	
+	<sql id="search">
+	<where>
+	<choose>
+	<when test="kind=='kind1'">EQUIPMENT_NAME</when>
+	<when test="kind=='kind2'">MEMBER_ID</when>
+	<otherwise>EQUIPMENT_NUM</otherwise>
+	</choose>
+	LIKE CONCAT('%',#{search},'%')
+	</where>
+	</sql>
+	
+	
 	<select id="getEquimentList" resultType="EquipmentVO" parameterType="Pager">
 	SELECT * FROM EQUIPMENT 
+	<include refid="search"></include>
 	ORDER BY EQUIPMENT_NUM DESC 
 	LIMIT #{startIndex},#{perPage}
 	</select>
