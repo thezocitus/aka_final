@@ -98,8 +98,11 @@
                 </div>	
 	            </div>
 					<div class="demo-inline-spacing ml-6">	
-						<a class=" btn btn-primary" href="/equipment/update?equipment_num=${vo.equipment_num}">수정</a>	
-						<button class="btn btn-danger" id="deleteEquipmentBtn" type="button">삭제</button>									
+						<a class=" btn btn-primary" href="/equipment/update?equipment_num=${vo.equipment_num}">수정</a>
+						<form action="/equipment/delete" method="post">
+						<input type="hidden" name="equipment_num" value="${vo.equipment_num}">
+						<button class="btn btn-danger" id="deleteEquipmentBtn">삭제</button>									
+						</form>	
 					</div>
           		  </div>		
             <!-- / Content -->

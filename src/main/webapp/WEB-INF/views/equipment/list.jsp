@@ -107,7 +107,7 @@
                   </li>
   		
   					 <form class="d-flex" action="/equipment/list"  method="get">
-  					  <div class="col-md-3">
+  				    <div class="col-md-3">
                       <select id="selectTypeOpt" name="kind" class="form-select color-dropdown">
                         <option value="kind1" selected>비품 이름</option>
                         <option value="kind2">비품 번호</option>
@@ -121,10 +121,10 @@
   					
   			
                 </ul>
+				<a class=" btn btn-primary" href="/equipment/create">추가</a>
               </nav>
 
 
-				<a class=" btn btn-primary" href="/equipment/create">추가</a>
            </div>
               </div>
             <!-- / Content -->

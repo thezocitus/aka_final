@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
 <mapper namespace="com.aka.app.equipment.EquipmentDAO">
 	
-	<delete id="deleteEquipment">
+	<delete id="deleteEquipment" parameterType="EquipmentVO">
 	DELETE FROM EQUIPMENT WHERE EQUIPMENT_NUM=#{equipment_num}
 	</delete>
 	
