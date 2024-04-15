@@ -29,7 +29,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getEquimentList" resultType="EquipmentVO" parameterType="Pager">
 	SELECT * FROM EQUIPMENT 
-	<include refid="search"></include>
 	ORDER BY EQUIPMENT_NUM DESC 
 	LIMIT #{startIndex},#{perPage}
 	</select>

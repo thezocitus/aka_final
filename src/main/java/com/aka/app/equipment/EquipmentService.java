@@ -14,6 +14,7 @@ public class EquipmentService {
 	private EquipmentDAO equipmentDAO;
 	
 	public int createEquiment (EquipmentVO equipmentVO) throws Exception {
+		
 		return equipmentDAO.createEquiment(equipmentVO);
 	}
 	
