@@ -13,6 +13,9 @@ public class EquipmentService {
 	@Autowired
 	private EquipmentDAO equipmentDAO;
 	
+	public int deleteEquipment(EquipmentVO equipmentVO) throws Exception {
+		return equipmentDAO.deleteEquipment(equipmentVO);
+	}
 	
 	public int updateEquipment (EquipmentVO equipmentVO) throws Exception {
 		return createEquiment(equipmentVO);

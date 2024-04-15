@@ -5,6 +5,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
 <mapper namespace="com.aka.app.equipment.EquipmentDAO">
 	
+	<delete id="deleteEquipment">
+	DELETE FROM EQUIPMENT WHERE EQUIPMENT_NUM=#{equipment_num}
+	</delete>
 	
 	<update id="updateEquipment" parameterType="EquipmentVO">
 	UPDATE EQUIPMENT 

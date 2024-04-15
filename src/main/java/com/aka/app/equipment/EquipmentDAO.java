@@ -8,6 +8,7 @@ import com.aka.app.util.Pager;
 
 @Mapper
 public interface EquipmentDAO {
+	public int deleteEquipment (EquipmentVO equipmentVO) throws Exception;
 	
 	public int createEquiment (EquipmentVO equipmentVO)throws Exception;
 	

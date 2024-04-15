@@ -65,6 +65,7 @@
                 <div class="col-lg">
                   <div class="card mb-4">
                     <h5 class="card-header">비품 번호 : ${vo.equipment_num}</h5>
+                    <input type="hidden"  id="equipment_num" value="${vo.equipment_num}" >
                     <table class="table table-borderless">
                       <tbody>
                         <tr>
@@ -98,7 +99,7 @@
 	            </div>
 					<div class="demo-inline-spacing ml-6">	
 						<a class=" btn btn-primary" href="/equipment/update?equipment_num=${vo.equipment_num}">수정</a>	
-						<button class=" btn btn-danger" type="button" >삭제</button>									
+						<button class="btn btn-danger" id="deleteEquipmentBtn" type="button">삭제</button>									
 					</div>
           		  </div>		
             <!-- / Content -->
@@ -123,7 +124,22 @@
         >git-hub</a
       >
     </div>
-
+	
+	<!-- <script>
+	const deleteEquipmentBtn = document.getElementById("deleteEquipmentBtn");
+  const equipmentNum = document.getElementById("equipment_num").value;	
+    deleteEquipmentBtn.addEventListener("click",()=>{
+    fetch("/equipment/delete",{
+      method:"POST",
+      headers: {'Content-type': ' application/x-www-form-urlencoded;charset=utf-8'},
+      body:"equipment_num="+equipmentNum
+    }).then(result=>result.json())
+    .then(result=>{
+      result.parse
+    })
+  })
+	</script> -->
+	
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>

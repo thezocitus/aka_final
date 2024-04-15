@@ -24,7 +24,20 @@ public class EquipmentController {
 	@Autowired
 	private EquipmentService equipmentService;
 	
-	
+	@PostMapping("delete")
+	public String deleteEquipment(EquipmentVO equipmentVO,Model model) throws Exception {
+		int result=0;
+		String msg = "비품 삭제 실패";
+		if(equipmentVO.getEquipment_num() != null) {				//인자값이 NUL 이 아니라면
+			result = equipmentService.deleteEquipment(equipmentVO); //db삭제성공 1  , db삭제 실패 0
+			if(result == 1) {
+			msg = "비품 삭제 성공";
+			}
+		}
+		model.addAttribute("msg",msg);
+		model.addAttribute("path","/equipment/list");				
+		return "commons/result";
+	}
 	
 	@GetMapping("update")
 	public void updateEquipment(EquipmentVO equipmentVO,Model model) throws Exception {
@@ -32,10 +45,9 @@ public class EquipmentController {
 		model.addAttribute("vo",equipmentVO);
 	}
 	@PostMapping("update")
-	public String updateEquiment(EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
-		if(bindingResult.hasErrors()) {
-			//form 검증 실패시 
-			return "equipment/update";
+	public String updateEquiment(EquipmentVO equipmentVO,Model model) throws Exception{
+		if(equipmentVO == null) { 
+			return "equipment/list";
 		}
 		int result = equipmentService.updateEquipment(equipmentVO);
 		model.addAttribute("msg", "비품 수정 성공");
