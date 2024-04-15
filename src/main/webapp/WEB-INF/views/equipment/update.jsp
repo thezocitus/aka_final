@@ -51,7 +51,7 @@
             <!-- Content -->
 
 			            <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>비품 목록 추가</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>비품 목록 수정</h4>
 
               <!-- Basic Layout & Basic with Icons -->
               <div class="row">
@@ -59,52 +59,52 @@
                 <div class="col-xxl">
                   <div class="card mb-4">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                      <h5 class="mb-0">비품 목록 추가</h5>
+                      <h5 class="mb-0">비품 번호 : ${vo.equipment_num}</h5>
                       <small class="text-muted float-end"></small>
                     </div>
                     <div class="card-body">
-                      <form:form action="/equipment/create" modelAttribute="equipmentVO" method="post">
+                      <form action="/equipment/update"  method="post">
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">비품 이름</label>
                           <div class="col-sm-10">
-                            <form:input type="text" class="form-control" path="equipment_name" id="basic-default-name" placeholder="이름을 입력하세요" />
-                            <form:errors path="equipment_name"></form:errors>
+                            <input type="text" class="form-control" name="equipment_name" value="${vo.equipment_name}" id="basic-default-name"/>
                           </div>
                         </div>
                       
                       	<div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">관리자 사원 번호</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" name="member_id" value="${vo.member_id}" id="basic-default-name"/>
+                          </div>
+                        </div>
+
+                      	<div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">구매 날짜</label>
                           <div class="col-sm-10">
-                            <form:input type="date" class="form-control" path="equipment_date" id="basic-default-name" placeholder="구매 날짜 입력하세요" />
-                          	<form:errors path="equipment_date"></form:errors>
+                            <input type="date" class="form-control" name="equipment_date" value="${vo.equipment_date}" id="basic-default-name"/>
                           </div>
                         </div>
                         
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">재고 수량</label>
                           <div class="col-sm-10">
-                            <form:input type="text" class="form-control" path="equipment_ea" id="basic-default-name" placeholder="재고 수량을 입력하세요" />
-                            <form:errors path="equipment_ea"></form:errors>
+                            <input type="text" class="form-control" name="equipment_ea" value="${vo.equipment_ea}" id="basic-default-name"/>
                           </div>
                         </div>
                         
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">상세 설명</label>
                           <div class="col-sm-10">
-                            <form:input type="text" class="form-control" path="equipment_contents" id="basic-default-name" placeholder="상세 설명을 입력하세요" />         	
-                        	<form:errors path="equipment_contents"></form:errors>
+                            <input type="text" class="form-control" name="equipment_contents" value="${vo.equipment_contents}" id="basic-default-name"/>
                           </div>
                         </div>
-                       
-                        
-                        
-                        
+                
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Send</button>
                           </div>
                         </div>
-                      </form:form>
+                      </form>
                     </div>
                   </div>
                 </div>

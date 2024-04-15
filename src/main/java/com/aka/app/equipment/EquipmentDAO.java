@@ -16,4 +16,6 @@ public interface EquipmentDAO {
 	public List<EquipmentVO> getEquimentList (Pager pager)throws Exception;  
 	
 	public Long getTotalCount ()throws Exception;
+	
+	public int updateEquipment (EquipmentVO equipmentVO)throws Exception;
 }

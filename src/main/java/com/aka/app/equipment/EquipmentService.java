@@ -13,6 +13,11 @@ public class EquipmentService {
 	@Autowired
 	private EquipmentDAO equipmentDAO;
 	
+	
+	public int updateEquipment (EquipmentVO equipmentVO) throws Exception {
+		return createEquiment(equipmentVO);
+	}
+	
 	public int createEquiment (EquipmentVO equipmentVO) throws Exception {
 		
 		return equipmentDAO.createEquiment(equipmentVO);

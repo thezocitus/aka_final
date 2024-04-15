@@ -5,6 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
 <mapper namespace="com.aka.app.equipment.EquipmentDAO">
 	
+	
+	<update id="updateEquipment" parameterType="EquipmentVO">
+	UPDATE EQUIPMENT 
+	<set>
+	<if test="member_id != null and member_id != ''">MEMBER_ID=#{member_id},</if>
+	<if test="equipment_name != null and equipment_name != ''">EQUIPMENT_NAME=#{equipment_name},</if>
+	<if test="equipment_date != null and equipment_date != ''">EQUIPMENT_DATE=#{equipment_date},</if>
+	<if test="equipment_ea != null and equipment_ea != ''">EQUIPMENT_EA=#{equipment_ea},</if>
+	<if test="equipment_contents != null and equipment_contents != ''">EQUIPMENT_CONTENTS=#{equipment_contents}</if>	
+	</set>
+	WHERE EQUIPMENT_ID = #{equipment_id}
+	</update>
+	
 	<insert id="createEquiment" parameterType="EquipmentVO">
 	INSERT INTO EQUIPMENT (MEMBER_ID,EQUIPMENT_NAME,EQUIPMENT_DATE,EQUIPMENT_EA,EQUIPMENT_CONTENTS)
 	VALUES (#{member_id},#{equipment_name},#{equipment_date},#{equipment_ea},#{equipment_contents})

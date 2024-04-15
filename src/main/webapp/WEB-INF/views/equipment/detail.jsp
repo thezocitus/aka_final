@@ -64,7 +64,7 @@
 			                <!-- Paragraph -->
                 <div class="col-lg">
                   <div class="card mb-4">
-                    <h5 class="card-header">${vo.equipment_name}</h5>
+                    <h5 class="card-header">비품 번호 : ${vo.equipment_num}</h5>
                     <table class="table table-borderless">
                       <tbody>
                         <tr>
@@ -96,9 +96,9 @@
                   </div>
                 </div>	
 	            </div>
-					<div class="demo-inline-spacing ml-6">
-						<a class=" btn btn-primary" href="/equipment/update">수정</a>
-						<a class=" btn btn-danger" href="/equipment/delete">삭제</a>
+					<div class="demo-inline-spacing ml-6">	
+						<a class=" btn btn-primary" href="/equipment/update?equipment_num=${vo.equipment_num}">수정</a>	
+						<button class=" btn btn-danger" type="button" >삭제</button>									
 					</div>
           		  </div>		
             <!-- / Content -->

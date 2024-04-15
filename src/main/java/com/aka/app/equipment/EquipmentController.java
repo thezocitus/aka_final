@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.aka.app.util.Pager;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 @RequestMapping("/equipment/*")
@@ -24,11 +26,29 @@ public class EquipmentController {
 	
 	
 	
-	@GetMapping("create")void createEquiment(@ModelAttribute EquipmentVO equipmentVO,Model model) throws Exception{
-		
+	@GetMapping("update")
+	public void updateEquipment(EquipmentVO equipmentVO,Model model) throws Exception {
+		equipmentVO = equipmentService.getEquimentDetail(equipmentVO);
+		model.addAttribute("vo",equipmentVO);
+	}
+	@PostMapping("update")
+	public String updateEquiment(EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
+		if(bindingResult.hasErrors()) {
+			//form 검증 실패시 
+			return "equipment/update";
+		}
+		int result = equipmentService.updateEquipment(equipmentVO);
+		model.addAttribute("msg", "비품 수정 성공");
+		model.addAttribute("path", "/equipment/list");
+		return"commons/result";
 	}
 	
-	@PostMapping("create")String createEquiment(@Valid EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
+	
+	@GetMapping("create")
+	public void createEquiment(@ModelAttribute EquipmentVO equipmentVO,Model model) throws Exception{
+	}
+	@PostMapping("create")
+	public String createEquiment(@Valid EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
 		if(bindingResult.hasErrors()) {
 			//form 검증 실패시 
 			return "equipment/create";
