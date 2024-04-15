@@ -109,9 +109,9 @@
   					 <form class="d-flex" action="/equipment/list"  method="get">
   					  <div class="col-md-3">
                       <select id="selectTypeOpt" name="kind" class="form-select color-dropdown">
-                        <option value="bg-primary" selected>비품 이름</option>
-                        <option value="bg-secondary">비품 번호</option>
-                        <option value="bg-success">관리자 사원 번호</option>
+                        <option value="kind1" selected>비품 이름</option>
+                        <option value="kind2">비품 번호</option>
+                        <option value="kind3">관리자 사원 번호</option>
                       </select>
                     </div>
                       <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
