@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 
 
@@ -496,7 +498,11 @@
               </div>
               <!-- /Search -->
 
+
+			<!-- 로그인했을때 변화 -->
+			
               <ul class="navbar-nav flex-row align-items-center ms-auto">
+              	
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
                   <a
@@ -561,14 +567,16 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
+                      <a class="dropdown-item" href="/member/logout">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
                     </li>
                   </ul>
                 </li>
-                <!--/ User -->
+            <!-- 로그인 했을때 -->
+                
+            <!--/ User -->
               </ul>
             </div>
           </nav>

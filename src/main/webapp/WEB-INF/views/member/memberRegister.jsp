@@ -137,6 +137,7 @@
                 </a>
               </div>
               <!-- /Logo -->
+              
               <h4 class="mb-2 fw-bold">회원가입 🚀</h4>
               <br>
 
@@ -151,7 +152,7 @@
                     placeholder="Enter your id"
                     autofocus
                   />
-                  <span style="color: red;">1111111</span>
+                  <span id="errId" style="color: red;">1111111</span>
                 </div>
                                 <div class="mb-3">
                   <label for="username" class="form-label">NAME</label>
@@ -217,17 +218,13 @@
                     autofocus
                   />
                 </div>
-                <div class="mb-3">
-                 	<label class="form-label" for="address">ADDRESS</label><br>
-					<input class="form-control w-50 float-start" type="text" id="sample2_postcode" placeholder="우편번호">
-					<input class="form-control w-50 float-start" type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input class="form-control" type="text" id="sample2_address" placeholder="주소"><br>
-					<input class="form-control" type="text" id="sample2_detailAddress" placeholder="상세주소">
-					<input class="form-control" type="text" id="sample2_extraAddress" placeholder="참고항목" hidden>
-					
-					<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
-					<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+                	<div class="mb-3">
+	                 	<label class="form-label" for="address">ADDRESS</label><br>
+						<input class="form-control w-50 float-start" type="text" id="postcode" placeholder="우편번호">
+						<input class="form-control w-50 float-start" type="button" onclick="postCode()" value="우편번호 찾기"><br>
+						<input class="form-control" type="text" id="normal_address" placeholder="주소"><br>
+						<input class="form-control" type="text" id="detailAddress" placeholder="상세주소">
+						<input class="form-control" type="text" id="sample6_extraAddress" placeholder="참고항목" hidden>
 					</div>
                 </div>
                 <br>
@@ -272,7 +269,9 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
    	<!-- address api -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+    <script type="text/javascript" src="../js/member/memberAddress.js"></script>
+    <!-- register js -->
     <script type="text/javascript" src="../js/member/memberRegister.js"></script>
   </body>
 </html>
