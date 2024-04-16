@@ -88,8 +88,8 @@
 	border: 0px solid rgb(0, 0, 0);	 
 	font-family: malgun gothic, dotum, arial, tahoma; 
 	margin-top: 1px; 
-    display : table;
-	 
+    display : flex;
+
 	 }
 
 .addbtn{

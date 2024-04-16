@@ -50,7 +50,15 @@ public class EdmsController {
 	}
 	
 	@GetMapping("create")
-	public String createEdms(Model model) {
+	public String createEdms(Model model) throws Exception {
+		
+		
+		//직원목록 불러오기
+		List<Map<String, String>> result = edmsService.getMemberList(); 
+		
+		System.out.println(result);
+		
+		model.addAttribute("list",result);		
 		
 		return "EDMS/create";
 		
@@ -88,10 +96,7 @@ public class EdmsController {
 		 
 	}
 	
-	
-	
-	
-	
+		
 	@GetMapping("form/draft")
 	
 	public String getformDraft(Model model) {
@@ -99,6 +104,13 @@ public class EdmsController {
 		return "EDMS/form/draft";
 		
 	}
+	
+	
+	
+	
+	
+	//직원목록 불러오기
+	
 	
 	
 }

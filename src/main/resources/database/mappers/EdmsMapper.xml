@@ -20,4 +20,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
+
+
+<!-- 결재선 직원 불러오기  -->
+
+	<select id="getMemberList" resultType="Map">
+		
+		SELECT MEMBER_ID, USERNAME, DEPARTMENT_ID, DEPARTMENT_SUPER_ID , DEPARTMENT_NAME , POSITION_ID, POSITION_NAME FROM `MEMBER` m 
+			JOIN DEPARTMENT d 
+			USING (DEPARTMENT_ID)
+			JOIN POSITIONRANK p 
+			USING (POSITION_ID);
+					
+	
+	</select>
+
+
+
 </mapper>
+
+

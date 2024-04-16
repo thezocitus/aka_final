@@ -224,14 +224,27 @@
  		</button>
  
 
-		<div id="appLine" class="appTable" style="float: right;">
+		<div id="appLine" class="appTable" style=" float: right;">
 			
 			
-			<div class="col-auto ps-0 pe-0">
+			<!-- <div class="col-auto ps-0 pe-0">
 				<div class="applineG">직급</div>
 				<div class="applineW">이름</div>
 				<div class="applineG">날짜</div>
-			</div>
+			</div>			
+			 -->
+			
+			
+			<c:forEach items="${list}" var="list">			
+				
+				<div class="col-auto ps-0 pe-0">
+					<div class="applineG">${list.POSITION_NAME}</div>
+					<div class="applineW">${list.USERNAME}</div>
+					<div class="applineG"></div>
+				</div> 
+			
+			</c:forEach>
+			
 			
 		</div>
 		

@@ -1,5 +1,8 @@
 package com.aka.app.edms;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +22,15 @@ public class EdmsService {
 		return edmsDAO.createEdms(edmsVO);
 		
 	}
+	
+	
+	
+	//직원목록 불러오기
+	public List<Map<String, String>> getMemberList()throws Exception{
+		
+				
+		return edmsDAO.getMemberList(); 
+		
+	}
+	
 }
