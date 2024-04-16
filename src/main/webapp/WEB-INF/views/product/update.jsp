@@ -81,24 +81,26 @@
                       	<div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">개월수</label>
                           <div class="col-sm-10">
-                            <input type="date" class="form-control" name="equipment_date" value="${vo.product_date}" id="basic-default-name"/>
+                            <input type="text" class="form-control" name="product_date" value="${vo.product_date}" id="basic-default-name"/>
                           </div>
                         </div>
                         
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">가격</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" name="equipment_ea" value="${vo.product_price}" id="basic-default-name"/>
+                            <input type="text" class="form-control" name="product_price" value="${vo.product_price}" id="basic-default-name"/>
                           </div>
                         </div>
                         
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">상세 설명</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" name="equipment_contents" value="${vo.product_detail}" id="basic-default-name"/>
+                            <textarea  class="form-control" name="product_detail"  id="basic-default-name">
+                            `${vo.product_detail}
+                            </textarea>
                           </div>
                         </div>
-                
+                		<input type="hidden" class="form-control" name="product_num" value="${vo.product_num}" id="basic-default-name"/>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Send</button>

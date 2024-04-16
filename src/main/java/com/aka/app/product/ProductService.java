@@ -12,6 +12,14 @@ public class ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 	
+	public int deleteProduct(ProductVO productVO) throws Exception {
+		return productDAO.deleteProduct(productVO);
+	}
+	
+	public int updateProduct(ProductVO productVO) throws Exception {
+		return productDAO.updateProduct(productVO);
+	}
+	
 	public ProductVO getProductDetail (ProductVO productVO) throws Exception {
 		return productDAO.getProductDetail(productVO);
 	}

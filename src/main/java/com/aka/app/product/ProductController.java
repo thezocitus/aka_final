@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.aka.app.equipment.EquipmentVO;
 
@@ -22,10 +23,40 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+	@PostMapping("delete")
+	public String deleteProduct (ProductVO productVO,Model model) throws Exception {
+		int result;
+		String msg = "상품 삭제 실패";
+		if(productVO != null) {
+			productService.deleteProduct(productVO);
+			msg = "상품 삭제 성공";
+		}
+		model.addAttribute("msg",msg);
+		model.addAttribute("path","/product/list");
+		return "commons/result";
+	}
 	
 	@GetMapping("update")
-	public void updateProduct () throws Exception {
+	public ModelAndView updateProduct (ProductVO productVO,ModelAndView mv) throws Exception {
+		productVO = productService.getProductDetail(productVO);
+		mv.addObject("vo",productVO);
+		mv.setViewName("product/update");
+		return mv;
 	}
+	
+	@PostMapping("update")
+	public String updateProduct (ProductVO productVO,Model model) throws Exception {
+		int result;
+		String msg = "상품 수정 실패";
+		result = productService.updateProduct(productVO);
+		if(result==1) {
+			msg = "상품 수정 성공";
+		}
+		model.addAttribute("msg",msg);
+		model.addAttribute("path","/product/list");
+		return "commons/result";
+	}
+	
 	
 	@GetMapping("detail")
 	public void getProductDetail(ProductVO productVO,Model model) throws Exception {

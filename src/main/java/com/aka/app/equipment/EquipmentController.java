@@ -16,6 +16,7 @@ import com.aka.app.util.Pager;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -39,12 +40,14 @@ public class EquipmentController {
 		return "commons/result";
 	}
 	@GetMapping("update")
-	public void updateEquipment(EquipmentVO equipmentVO,Model model) throws Exception {
+	public ModelAndView updateEquipment(EquipmentVO equipmentVO,ModelAndView modelAndView) throws Exception {
 		equipmentVO = equipmentService.getEquimentDetail(equipmentVO);
-		model.addAttribute("vo",equipmentVO);
+		modelAndView.addObject("vo",equipmentVO);
+		modelAndView.setViewName("product/update");
+		return modelAndView;
 	}
 	@PostMapping("update")
-	public String updateEquiment(EquipmentVO equipmentVO,Model model) throws Exception{
+	public String updateEquipment(EquipmentVO equipmentVO,Model model) throws Exception{
 		int result=0;
 		String msg = "비품 수정 실패";
 		if(equipmentVO.getEquipment_num() != null) { 
@@ -58,10 +61,10 @@ public class EquipmentController {
 	
 	
 	@GetMapping("create")
-	public void createEquiment(@ModelAttribute EquipmentVO equipmentVO) throws Exception{
+	public void createEquipment(@ModelAttribute EquipmentVO equipmentVO) throws Exception{
 	}
 	@PostMapping("create")
-	public String createEquiment(@Valid EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
+	public String createEquipment(@Valid EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
 		int result=0;
 		String msg = "비품 추가 실패";
 		if(bindingResult.hasErrors()) {
