@@ -17,6 +17,188 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 
+<style>
+
+.display-flex {
+	display: flex;
+}
+
+
+#department-box {
+	height: 430px;
+	width: 200px;
+	border: 1px solid #D9D9D9;
+	margin-right: 20px;
+}
+
+#department-box>button {
+	justify-content: center;
+	background-color: white;
+}
+
+/*--main-color-lt:#BDDFFF;  밝은 하늘색 버튼 
+  --main-color-bl:#96C1E8;  하늘색 버튼 
+  --main-color-dk:#5F90CB;  어두운 하늘색 버튼 */
+#department-box>button:hover {
+	color: #96C1E8;
+}
+
+#people-box {
+	height: 430px;
+	width: 350px;
+	border: 1px solid #D9D9D9;
+}
+
+
+/*	        .modalBox button {
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+        }
+*/
+
+
+#first-arrow,
+#second-arrow,
+#three-arrow,
+#four-arrow {
+	height: 10px;
+	width: 10px;
+	background-color: white;
+	margin-right: 30px;
+	margin-left: 10px;
+}
+
+#first-arrow {
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+#second-arrow {
+	margin-bottom: 170px;
+}
+
+#three-arrow {
+	margin-bottom: 30px;
+}
+
+#line-box {
+	height: 200px;
+	width: 350px;
+	border: 1px solid #D9D9D9;
+	margin-bottom: 30px;
+}
+
+#refer-box {
+	height: 200px;
+	width: 350px;
+	border: 1px solid #D9D9D9;
+}
+
+#add-remove {
+	display: flex;
+	flex-direction: column;
+}
+
+#add-remove button {
+	padding: 0px;
+}
+
+
+#line-box-text {
+	/* 결재선 글씨 */
+	margin: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#refer-box-text {
+	/* 참조선 글씨 */
+	margin: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#close-button {
+	margin-top: 20px;
+	margin-left: 750px;
+	width: 100px;
+	height: 40px;
+	background-color: #D9D9D9;
+}
+
+#regist-button {
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 100px;
+	height: 40px;
+
+}
+
+
+#people-box {
+	font-size: 15px;
+}
+
+
+#approveAssign{
+	margin-left: 30px;
+}
+
+#fileClickId{
+	border: 1px solid  #D9D9D9;
+	background-color: white;
+}
+
+#fileClickId:hover{
+	color:  #D9D9D9;
+}
+
+#cStyle{
+	width: 500px;
+	line-height: 100px;
+	font-size: 30px;
+	text-align: center;
+	color: green;
+}
+
+#rStyle{
+	width: 500px;
+	line-height: 100px;
+	font-size: 30px;
+	text-align: center;
+	color: red;
+}
+
+#wStyle{
+	width: 500px;
+	line-height: 100px;
+	font-size: 30px;
+	text-align: center;
+	color: var(--main-color-lt);
+}
+
+#pStyle{
+	width: 500px;
+	line-height: 100px;
+	font-size: 30px;
+	text-align: center;
+	color: aqua;
+}
+
+#pencil{
+	width: 30px;
+	height: 30px;
+	margin-left: 630px;
+}
+
+#pencilFont{
+	font-size: 15px;
+	
+}
+
+
+</style>
 
 
 <form id="formelem">
@@ -37,7 +219,7 @@
 	<div class="col-6">
 	 
 	
-	   <button class="addLineBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"  id="addLineBtn">
+	   <button class="addLineBtn" type="button" data-bs-toggle="modal" data-bs-target="#largeModal" data-bs-whatever="@mdo"  id="addLineBtn">
  				결제선 <br> 추가 
  		</button>
  
@@ -201,24 +383,56 @@
 
 
 <!-- modal  -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
+	<div class="modal fade" id="largeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" >
 		<div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+			<h5 class="modal-title" id="largeModal">New message</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
-		<div class="modal-body">
-			<form>
-			<div class="mb-3">
-				<label for="recipient-name" class="col-form-label">Recipient:</label>
-				<input type="text" class="form-control" id="recipient-name">
+		<div class="modal-body" style="display: flex;">			
+ 			
+			<div id="people-box">
+			
+	    	
+		    </div>
+		    
+			<div id="add-remove">
+				<span id="first-arrow">
+				    <button type="button" style="width: 30px; height: 30px; background-color:white; border:0;">
+			  			<img src="/img/arrow/right.svg" height="30px" width="30px" onclick="applyOn();" >
+					</button>
+				</span>
+			
+				<span id="second-arrow">
+						<button type="button" style="width: 30px; height: 30px; background-color:white; border:0;">
+						    <img src="/img/arrow/left.svg" height="30px" width="30px" onclick="applyOff();" >
+						</button>
+				</span>
+			
+				<span id="three-arrow">
+					<button type="button"style="width: 30px; height: 30px; background-color:white; border:0;">
+					  <img src="/img/arrow/right.svg" height="30px" width="30px" onclick="referOn();" >
+					</button>
+				</span>
+				
+				<span id="four-arrow">
+					<button type="button"  style="width: 30px; height: 30px; background-color:white; border:0;">
+					  <img src="/img/arrow/left.svg" height="30px" width="30px" onclick="referOff();" >
+					</button>
+				</span>	
 			</div>
-			<div class="mb-3">
-				<label for="message-text" class="col-form-label">Message:</label>
-				<textarea class="form-control" id="message-text"></textarea>
-			</div>
-			</form>
+		    
+		    <div id="line-refer-box">
+		    		<div id="line-box">
+		    			<p id="line-box-text">결재선</p>
+		    		</div>
+		    		
+		    		<div id="refer-box">
+		    			<p id="refer-box-text">참조선</p>
+	
+		    		</div>
+		    </div>
 		</div>
 		<div class="modal-footer">
 			<button id="addBtn"  type="button" class="btn btn-primary">Send message</button>
