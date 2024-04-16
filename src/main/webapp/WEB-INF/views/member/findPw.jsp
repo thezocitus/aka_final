@@ -11,7 +11,7 @@
 * License: You must have a valid license purchased in order to legally use the theme for your project.
 * Copyright ThemeSelection (https://themeselection.com)
 
-=========================================================
+========================================================
  -->
 <!-- beautify ignore:start -->
 <html
