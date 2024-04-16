@@ -109,6 +109,33 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- oauth2-client -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+		
+		<!-- spring-security-taglibs -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+		
+		<!-- validation -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		
+		<!-- spring-boot-starter-aop -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+			<!-- 버전 생략 -->
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
