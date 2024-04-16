@@ -9,6 +9,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="java.lang.String" alias="String" />
 	<typeAlias type="com.aka.app.equipment.EquipmentVO" alias="EquipmentVO"/>
 	<typeAlias type="com.aka.app.util.Pager"  alias="Pager"/>
-	
+	<typeAlias type="com.aka.app.product.ProductVO" alias="ProductVO"/>
 	</typeAliases>
 </configuration>

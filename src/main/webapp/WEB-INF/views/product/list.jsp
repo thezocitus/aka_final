@@ -47,82 +47,126 @@
           <div class="content-wrapper">
             <!-- Content -->
              <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">Equiment<span class="text-muted fw-light">/list</span></h4>
-				<div class="card">
-                <h5 class="card-header">비품 관리 목록</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead class="table-light">
-                      <tr>
-                        <th>비품 번호</th>
-                        <th>관리자 사원 번호</th>
-                        <th>비품 이름</th>
-                        <th>비품 추가 날짜</th>
-                        <th>수량</th>
-                      
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                     <c:forEach items="${list}" var="vo">
-                    
-                      <tr>
-                        <td>${vo.equipment_num}</td>
-                        <td>${vo.member_id}</td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><a href="/equipment/detail?equipment_num=${vo.equipment_num}"><strong>${vo.equipment_name}</strong></a></td>
-                        <td>${vo.equipment_date}</td>
-                        <td>${vo.equipment_ea}</td>
-                      </tr>
-                      
-                     </c:forEach>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">ProductList /</span>상품 리스트</h4>
 
-                
-
-
-            <div class="demo-inline-spacing ml-6">
-
-              <nav aria-label="Page navigation">
-                <ul class="pagination">
-
-                <c:if test="${!start}">
-                  <li class="page-item first">
-                    <a class="page-link" href="./list?page=1&kind=${kind}$search=${search}" ><i class="tf-icon bx bx-chevrons-left"></i></a>
-                  </li>
-                  <li class="page-item prev"> <a class="page-link" href="./list?page=${pager.page-1}&kind=${kind}$search=${search}"><i class="tf-icon bx bx-chevron-left"></i></a> </li>
-                </c:if> 
-                  
-                  <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                  <li class="page-item"> <a class="page-link" href="./list?page=${i}&kind=${kind}$search=${search}">${i}</a> </li>
-                  </c:forEach>
-  
-  							
-                  <li class="page-item next">
-                    <a class="page-link" href="./list?page=${pager.page+1}&kind=${kind}$search=${search}"><i class="tf-icon bx bx-chevron-right"></i></a>
-                  </li>
-                  <li class="page-item last">
-                    <a class="page-link" href="./list?page=${pager.lastNum}&kind=${kind}$search=${search}"><i class="tf-icon bx bx-chevrons-right"></i></a>
-                  </li>
-  		
-  					 <form class="d-flex" action="/equipment/list"  method="get">
-  				    <div class="col-md-3">
-                      <select id="selectTypeOpt" name="kind" class="form-select color-dropdown">
-                        <option value="kind1" selected>비품 이름</option>
-                        <option value="kind2">비품 번호</option>
-                        <option value="kind3">관리자 사원 번호</option>
-                      </select>
+              <!-- Examples -->
+              <div class="row mb-5">
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/1.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">실리콘밸리 리더가 알려주는 ChatGPT</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
                     </div>
-                      <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search" />
-                      <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
-                    
-  					
-  			
-                </ul>
-				<a class=" btn btn-primary" href="/equipment/create">추가</a>
-              </nav>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/3.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/4.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/5.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+              
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="/assets/img/elements/7.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                      </p>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <c:forEach items="${list}"  var="vo">
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="${vo.product_photos}" alt="Card image cap" />
+                    <div class="card-body">
+                      <h5 class="card-title">${vo.product_name}</h5>
+                      <p class="card-text">
+                        상품 가격 : ${vo.product_price} 원
+                      </p>
+                      <p class="card-text">
+                        상품 개월수 : ${vo.product_date}
+                      </p>
+                      <a href="/product/detail?product_num=${vo.product_num}" class="btn btn-outline-primary">상품 상세 보기</a>
+                    </div>
+                  </div>
+                </div>
+                
+                </c:forEach>
+                
+                
+                
+                
+                
+                
+                
+                
+              
+                <nav aria-label="Page navigation">
+                <a class=" btn btn-primary" href="/product/create">상품 추가</a>
+                </nav>
+              </div>
+              
+              
+              
+              
 
 
            </div>

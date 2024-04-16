@@ -32,15 +32,12 @@ public class EquipmentController {
 		String msg = "비품 삭제 실패";
 		if(equipmentVO.getEquipment_num() != null) {				//인자값이 NUL 이 아니라면
 			result = equipmentService.deleteEquipment(equipmentVO); //db삭제성공 1  , db삭제 실패 0
-			if(result == 1) {
-			msg = "비품 삭제 성공";
-			}
+			if(result == 1) msg = "비품 삭제 성공";
 		}
 		model.addAttribute("msg",msg);
 		model.addAttribute("path","/equipment/list");				
 		return "commons/result";
 	}
-	
 	@GetMapping("update")
 	public void updateEquipment(EquipmentVO equipmentVO,Model model) throws Exception {
 		equipmentVO = equipmentService.getEquimentDetail(equipmentVO);
@@ -48,28 +45,33 @@ public class EquipmentController {
 	}
 	@PostMapping("update")
 	public String updateEquiment(EquipmentVO equipmentVO,Model model) throws Exception{
-		if(equipmentVO == null) { 
-			return "equipment/list";
+		int result=0;
+		String msg = "비품 수정 실패";
+		if(equipmentVO.getEquipment_num() != null) { 
+			result = equipmentService.updateEquipment(equipmentVO);
+			if(result == 1) msg = "비품 삭제 성공";
 		}
-		int result = equipmentService.updateEquipment(equipmentVO);
-		model.addAttribute("msg", "비품 수정 성공");
+		model.addAttribute("msg", msg);
 		model.addAttribute("path", "/equipment/list");
 		return"commons/result";
 	}
 	
 	
 	@GetMapping("create")
-	public void createEquiment(@ModelAttribute EquipmentVO equipmentVO,Model model) throws Exception{
+	public void createEquiment(@ModelAttribute EquipmentVO equipmentVO) throws Exception{
 	}
 	@PostMapping("create")
 	public String createEquiment(@Valid EquipmentVO equipmentVO,BindingResult bindingResult,Model model) throws Exception{
+		int result=0;
+		String msg = "비품 추가 실패";
 		if(bindingResult.hasErrors()) {
 			//form 검증 실패시 
 			return "equipment/create";
 		}
 		equipmentVO.setMember_id(1L);
-		int result = equipmentService.createEquiment(equipmentVO);
-		model.addAttribute("msg", "비품 추가 성공");
+		result = equipmentService.createEquiment(equipmentVO);
+		if(result ==1) msg = "비품 추가 성공";
+		model.addAttribute("msg", msg);
 		model.addAttribute("path", "/equipment/list");
 		return"commons/result";
 	}
