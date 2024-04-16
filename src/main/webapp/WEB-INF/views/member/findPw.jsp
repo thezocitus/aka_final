@@ -137,25 +137,33 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">비밀번호 찾기 🔒</h4>
-              <p class="mb-4">회원가입에 입력했던 이메일을 입력해주세요</p>
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    autofocus
-                  />
-                  <span style="color:red">Not Found</span>
-                </div>
-                <button class="btn btn-primary d-grid w-100">비밀번호 변경</button>
-              </form>
+              <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group">
+				  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="1" checked>
+				  <label class="btn btn-outline-primary" for="btnradio1">아이디 찾기</label>
+				
+				  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+				  <label class="btn btn-outline-primary" for="btnradio2">비밀번호 찾기</label>
+			  </div>
+				<div>
+	              <p class="my-3">회원가입에 입력했던 이메일을 입력해주세요</p>
+	              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+	                <div class="mb-3">
+	                  <label for="email" class="form-label fw-bold fs-5">Email</label>
+	                  <input
+	                    type="text"
+	                    class="form-control"
+	                    id="email"
+	                    name="email"
+	                    placeholder="Enter your email"
+	                    autofocus
+	                  />
+	                  <span style="color:red">Not Found</span>
+	                </div>
+	                <button class="btn btn-primary d-grid w-100">비밀번호 변경</button>
+	              </form>
+				</div>
               <div class="text-center">
-                <a href="auth-login-basic.html" class="d-flex align-items-center justify-content-center">
+                <a href="/member/login" class="d-flex align-items-center justify-content-center">
                   <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
                   로그인페이지로 이동
                 </a>

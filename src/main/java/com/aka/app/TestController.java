@@ -7,4 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
+	@GetMapping("/test/test")
+	public String test(){
+		return "member/findPw";
+	}
 }

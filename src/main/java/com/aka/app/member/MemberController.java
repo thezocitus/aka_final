@@ -14,19 +14,19 @@ import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/member/*")
+@RequestMapping("/member*")
 @Slf4j
 public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("*")
+	@GetMapping("")
 	public String loginCheck() {
 		return "member/first";
 	}
 	
-	@GetMapping("login")
+	@GetMapping("/login")
 	public String memberLogin(@ModelAttribute MemberVO memberVO, HttpSession session, Model model)throws Exception {
 		
 		
@@ -44,15 +44,15 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("register")
+	@GetMapping("/register")
 	public String register(@ModelAttribute MemberVO memberVO) throws Exception{
-		if(memberVO != null) {
+		if(memberVO.getUser_id() != null) {
 			return "redirect:/";
 		}
 		return "member/memberRegister";
 	}
 	
-	@PostMapping("register")
+	@PostMapping("/register")
 	public String register(@Validated MemberVO memberVO, BindingResult bindingResult, Model model)throws Exception{
 		
 		int result = memberService.add(memberVO);

@@ -152,7 +152,7 @@
                     placeholder="Enter your id"
                     autofocus
                   />
-                  <span style="color: red;">1111111</span>
+                  <span id="errId" style="color: red;">1111111</span>
                 </div>
                                 <div class="mb-3">
                   <label for="username" class="form-label">NAME</label>
@@ -269,7 +269,9 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
    	<!-- address api -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> -->
+    <script type="text/javascript" src="../js/member/memberAddress.js"></script>
+    <!-- register js -->
     <script type="text/javascript" src="../js/member/memberRegister.js"></script>
   </body>
 </html>
