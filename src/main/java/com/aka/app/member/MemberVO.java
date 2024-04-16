@@ -76,4 +76,4 @@ public class MemberVO implements UserDetails, OAuth2User{
 
 }
 
-}
+
