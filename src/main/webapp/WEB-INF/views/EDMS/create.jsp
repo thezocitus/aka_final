@@ -591,7 +591,13 @@
 
 	
 	$('#jstree_demo_div').on("changed.jstree", function (e, data) {
-		  console.log(data.selected);
+		  
+		
+		console.log(data.selected);
+		  
+		  
+		  
+		  
 		});
 	
 	$('button').on('click', function () {
