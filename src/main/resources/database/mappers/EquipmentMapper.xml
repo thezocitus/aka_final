@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.aka.app.equipment.EquipmentDAO">
+	
+	<delete id="deleteEquipment" parameterType="EquipmentVO">
+	DELETE FROM EQUIPMENT WHERE EQUIPMENT_NUM=#{equipment_num}
+	</delete>
+	
+	<update id="updateEquipment" parameterType="EquipmentVO">
+	UPDATE EQUIPMENT 
+	<set>
+	<if test="member_id != null and member_id != ''">MEMBER_ID=#{member_id},</if>
+	<if test="equipment_name != null and equipment_name != ''">EQUIPMENT_NAME=#{equipment_name},</if>
+	<if test="equipment_date != null and equipment_date != ''">EQUIPMENT_DATE=#{equipment_date},</if>
+	<if test="equipment_ea != null and equipment_ea != ''">EQUIPMENT_EA=#{equipment_ea},</if>
+	<if test="equipment_contents != null and equipment_contents != ''">EQUIPMENT_CONTENTS=#{equipment_contents}</if>	
+	</set>
+	WHERE EQUIPMENT_ID = #{equipment_id}
+	</update>
+	
+	<insert id="createEquiment" parameterType="EquipmentVO">
+	INSERT INTO EQUIPMENT (MEMBER_ID,EQUIPMENT_NAME,EQUIPMENT_DATE,EQUIPMENT_EA,EQUIPMENT_CONTENTS)
+	VALUES (#{member_id},#{equipment_name},#{equipment_date},#{equipment_ea},#{equipment_contents})
+	</insert>
+	
+	<select id="getEquimentDetail" resultType="EquipmentVO" parameterType="EquipmentVO">
+	SELECT * FROM EQUIPMENT WHERE EQUIPMENT_NUM = #{equipment_num}
+	</select>
+	
+	
+	<sql id="search">
+	<where>
+	<choose>
+	<when test="kind=='kind1'">EQUIPMENT_NAME</when>
+	<when test="kind=='kind2'">EQUIPMENT_NUM</when>
+	<otherwise>MEMBER_ID</otherwise>
+	</choose>
+	LIKE CONCAT('%',#{search},'%')
+	</where>
+	</sql>
+	
+	
+	<select id="getEquimentList" resultType="EquipmentVO" parameterType="Pager">
+	SELECT * FROM EQUIPMENT 
+	<include refid="search"></include>
+	ORDER BY EQUIPMENT_NUM DESC 
+	LIMIT #{startIndex},#{perPage}
+	</select>
+
+	
+	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+	SELECT COUNT(EQUIPMENT_NUM) FROM EQUIPMENT
+	<include refid="search"></include>
+	</select>
+
+</mapper>

@@ -2,9 +2,11 @@ package com.aka.app.member;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class MemberVO implements UserDetails{
+public class MemberVO implements UserDetails, OAuth2User{
 	
 	private Long member_id;
 	private Long department_id;
@@ -34,15 +36,44 @@ public class MemberVO implements UserDetails{
 	private Long position_id;
 	
 	// security
-	private boolean accountNonExpired;			// 아이디가 없거나 만료
-	private boolean accountNonLocked;			// 계정 잠김
-	private boolean credentialsNonExpired;		// 비밀번호 유효기간 종료
-	private boolean enabled;					// 휴면 계정
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return null;
 	}
 
-	
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	@Override
+	public Map<String, Object> getAttributes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
+
+

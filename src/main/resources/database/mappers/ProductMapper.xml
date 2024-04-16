@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.aka.app.product.ProductDAO">
+
+	<delete id="deleteProduct">
+	DELETE FROM PRODUCT WHERE PRODUCT_NUM=#{product_num}
+	</delete>
+
+	<update id="updateProduct" parameterType="ProductVO">
+	UPDATE PRODUCT 
+	<set>
+	<if test="member_id != null and member_id != ''">MEMBER_ID=#{member_id},</if>
+	<if test="product_name != null and product_name != ''">PRODUCT_NAME=#{product_name},</if>
+	<if test="product_price != null and product_price != ''">PRODUCT_PRICE=#{product_price},</if>
+	<if test="product_date != null and product_date != ''">PRODUCT_DATE=#{product_date},</if>
+	<if test="product_detail != null and product_detail != ''">PRODUCT_DETAIL=#{product_detail}</if>	
+	</set>
+	WHERE PRODUCT_NUM = #{product_num}
+	</update>
+
+	<select id="getProductDetail" parameterType="ProductVO" resultType="ProductVO">
+	SELECT * FROM PRODUCT WHERE PRODUCT_NUM = #{product_num}
+	</select>
+
+	<insert id="createProduct">
+	INSERT INTO PRODUCT (MEMBER_ID,PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_DATE,PRODUCT_DETAIL,PRODUCT_PHOTOS) 
+	VALUES (#{member_id},#{product_name},#{product_price},#{product_date},#{product_detail},#{product_photos})
+	</insert>
+
+	<select id="getProductList">
+	SELECT * FROM PRODUCT
+	</select>
+
+	
+	
+	
+
+</mapper>
