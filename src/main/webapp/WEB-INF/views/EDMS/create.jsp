@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+
 <!DOCTYPE html>
 
 
@@ -15,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
 <style>
 
@@ -227,15 +229,26 @@
 		<div id="appLine" class="appTable" style=" float: right;">
 			
 			
-			<!-- <div class="col-auto ps-0 pe-0">
+			<!--  <div class="col-auto ps-0 pe-0">
 				<div class="applineG">직급</div>
-				<div class="applineW">이름</div>
+				<div class="applineW">1</div>
 				<div class="applineG">날짜</div>
 			</div>			
-			 -->
+			 <div class="col-auto ps-0 pe-0">
+				<div class="applineG">직급</div>
+				<div class="applineW">2</div>
+				<div class="applineG">날짜</div>
+			</div>			
+			 <div class="col-auto ps-0 pe-0">
+				<div class="applineG">직급</div>
+				<div class="applineW">3</div>
+				<div class="applineG">날짜</div>
+			</div>			
+		
+		 -->
 			
-			
-			<c:forEach items="${list}" var="list">			
+			<c:set var="listLength" value="${fn:length(list)}" />
+			<c:forEach items="${list}" var="list" begin="0" end="${listLength -1}">		
 				
 				<div class="col-auto ps-0 pe-0">
 					<div class="applineG">${list.POSITION_NAME}</div>
@@ -244,7 +257,7 @@
 				</div> 
 			
 			</c:forEach>
-			
+ 			
 			
 		</div>
 		
@@ -406,7 +419,7 @@
 		<div class="modal-body" style="display: flex;">			
  			
 			<div id="people-box">
-			
+			  <div id="jstree_demo_div"></div>
 	    	
 		    </div>
 		    
@@ -571,7 +584,22 @@
 
 	}
 
+	
+	//JsTree
+	
+	$(function () { $('#jstree_demo_div').jstree(); });
 
+	
+	$('#jstree_demo_div').on("changed.jstree", function (e, data) {
+		  console.log(data.selected);
+		});
+	
+	$('button').on('click', function () {
+		  $('#jstree').jstree(true).select_node('child_node_1');
+		  $('#jstree').jstree('select_node', 'child_node_1');
+		  $.jstree.reference('#jstree').select_node('child_node_1');
+		});
+	
 </script>
 
 
@@ -582,5 +610,5 @@
  <script src="/assets/vendor/libs/jquery/jquery.js"></script>
  <script src="/assets/vendor/js/bootstrap.js"></script>
  <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
