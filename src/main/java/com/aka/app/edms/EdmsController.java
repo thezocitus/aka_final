@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nimbusds.jose.shaded.gson.JsonArray;
+import com.nimbusds.jose.shaded.gson.JsonObject;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 @Controller
 @RequestMapping("/edms/*")
@@ -52,7 +58,33 @@ public class EdmsController {
 		//직원목록 불러오기
 		List<Map<String, String>> result = edmsService.getMemberList(); 
 		
+		List<ChartVO> chartAr = edmsService.getDeptList();
+		
+		Map<String, String> list = new HashMap<>();
+		
+		System.out.println(chartAr.get(0).getName());
+		
+		JsonArray jsonAr = new JsonArray();		
+		//chart list에 부서 넣기
+//		for (Map<String, String> a : deptList) {
+//			
+//			
+//			
+//			list.put("id", a.get("DEPARTMENT_ID"));
+//			list.put("name", a.get("DEPARTMENT_NAME"));
+//			list.put("type", "dept");
+//			list.put("depth", a.get("depth"));			
+//			list.put("parent", a.get(" DEPARTMENT_SUPER_ID"));
+//		JsonObject jsonObject = new JsonObject();
+//		
+//			
+//		}
 		System.out.println(result);
+				
+		
+		
+				
+		
 		
 		model.addAttribute("list",result);		
 		
@@ -101,6 +133,31 @@ public class EdmsController {
 		
 	}
 	
+	
+	
+	
+	
+	@GetMapping("api/Chart")
+	@ResponseBody
+	public List<ChartVO> getMethodName() throws Exception {
+		
+		 List<ChartVO> result =edmsService.getDeptList();
+		
+		 for(ChartVO chartVO : result) {
+			 
+			 chartVO.setType("dept");
+			 
+			 System.out.println("apichart"+chartVO);
+		 }
+		 
+		
+		 
+		return result;
+		
+		
+		
+		
+	}
 	
 	
 	

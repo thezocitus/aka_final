@@ -33,4 +33,9 @@ public class EdmsService {
 		
 	}
 	
+	public List<ChartVO> getDeptList() throws Exception{
+		
+		return edmsDAO.getDeptList();
+	}
+	
 }

@@ -19,4 +19,8 @@ public interface EdmsDAO {
 	//직원목록 불러오기
 	public List<Map<String, String>> getMemberList() throws Exception;
 	
+	
+	//부서목록 가져오기
+	public List<ChartVO> getDeptList() throws Exception;
+	
 }

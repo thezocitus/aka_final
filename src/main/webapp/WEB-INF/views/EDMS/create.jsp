@@ -498,16 +498,27 @@
 	const myInput = document.getElementById('myInput');
 	const applyBtn = document.getElementById('applyBtn');
 	const formelem = document.getElementById('formelem');
-
+	const jstree = document.getElementById('jstree_demo_div');
 	
 
 	
 	//모달 불러오는 함수
-	addLineBtn.addEventListener('shown.bs.modal',function(){		
-		
+
+	addLineBtn.addEventListener('click', e=>{
 		console.log("1qewqeq");
 		
-		myInput.focus()		
+		initialize(jstree_demo_div,null);
+
+	})
+
+	addLineBtn.addEventListener('shown.bs.modal',function(){		
+		
+	
+
+
+
+		myInput.focus()	
+
 
 	});
 
@@ -587,19 +598,106 @@
 	
 	//JsTree
 	
-	$(function () { $('#jstree_demo_div').jstree(); });
+	// $(function () { $('#jstree_demo_div').jstree(); });
 
 	
-	$('#jstree_demo_div').on("changed.jstree", function (e, data) {
-		  console.log(data.selected);
-		});
+	// $('#jstree_demo_div').on("changed.jstree", function (e, data) {
+	// 	  console.log(data.selected);
+	// 	});
 	
-	$('button').on('click', function () {
-		  $('#jstree').jstree(true).select_node('child_node_1');
-		  $('#jstree').jstree('select_node', 'child_node_1');
-		  $.jstree.reference('#jstree').select_node('child_node_1');
-		});
+	// $('button').on('click', function () {
+	// 	  $('#jstree').jstree(true).select_node('child_node_1');
+	// 	  $('#jstree').jstree('select_node', 'child_node_1');
+	// 	  $.jstree.reference('#jstree').select_node('child_node_1');
+	// 	});
 	
+
+
+
+// jstree 초기화 함수
+function initialize(id, callback, isAllopen = false){
+    
+
+    chart = $(`#jstree_demo_div`); // 주어진 id로 jstree 차트 요소 선택
+    chart.jstree({ // jstree 초기화
+        'core' : {
+            'animation' : 0, // 애니메이션 비활성화
+            'check_callback' : true, // 콜백 함수 사용 여부
+            'data' : { // 트리 데이터 설정
+                url : 'api/Chart' , // 데이터를 가져올 URL
+                'dataType' : 'json' // 데이터 유형
+            }
+        },
+        plugins : ['types', 'wholerow'], // 플러그인 설정
+        'types':{ // 노드 유형 및 아이콘 설정
+            'dept' : { // 부서 노드
+                'icon': 'bi bi-building' // 부서 아이콘
+            },
+            'person' : { // 직원 노드
+                'icon' : 'bi bi-person' // 직원 아이콘
+            }
+        }
+    });
+
+    let selected; // 선택된 노드를 저장할 변수
+
+    // 노드 선택 이벤트 리스너 등록
+	chart.on(
+        'select_node.jstree', (e, data)=>{
+            let isSelected; // 선택 여부를 나타내는 변수
+            // 이전에 선택된 노드와 현재 노드가 같은 경우
+            if(selected?.node.id === data.node.id){
+                data.instance.deselect_node(data.node); // 노드 선택 해제
+                selected = null; // 선택된 노드 변수 초기화
+                isSelected = false; // 선택되지 않음 표시
+            } else {
+                selected = data; // 선택된 노드 저장
+                isSelected = true; // 선택됨 표시
+            }
+
+            // 옵션이 'person'이고 선택된 노드가 'dept'인 경우
+            if(opt === 'person' && data.node.type === 'dept'){
+                data.instance.deselect_node(data.node); // 노드 선택 해제
+                return; // 함수 종료
+            }
+
+            // 선택된 노드의 정보를 포함한 파라미터 객체 생성
+            let param = {
+                id : data.node.id, // 노드 ID
+                name : data.node.text, // 노드 이름
+                type : data.node.type, // 노드 유형
+                depth : data.node.original.depth, // 노드 깊이
+                children : data.node.children, // 하위 노드 배열
+                parent : data.node.parent, // 상위 노드 ID
+                isSelect : isSelected // 선택 여부
+            }
+
+            
+        }
+    )
+
+    // 모든 노드를 열기 옵션에 따라 트리 열기 동작 설정
+    if(isAllopen) {
+        chart.on('ready.jstree', ()=>chart.jstree('open_all')); // 모든 노드 열기
+    } else {
+        chart.on('ready.jstree', ()=>chart.jstree('open_node',{id : '1'})); // 루트 노드만 열기
+    }
+}
+
+/**
+ * 조직도를 재생성함
+ */
+function refreshTree(){
+    chart.jstree('refresh') // 트리 재생성
+}
+
+// 외부에서 사용할 함수들을 모아둔 객체
+let orgChart = {
+    init : initialize, // 초기화 함수
+    refresh : refreshTree // 트리 재생성 함수
+}
+
+
 </script>
 
 
