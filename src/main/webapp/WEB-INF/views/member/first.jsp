@@ -140,7 +140,7 @@
                 <span class="fw-bolder text-uppercase">로그인</span>
               </div>
               <div class="mb-3">
-                <a href="login" class="btn btn-primary d-grid w-100">직원</a>
+                <a href="/member/login" class="btn btn-primary d-grid w-100">직원</a>
               </div>
               <div class="mb-3">
                 <a href="#" class="btn btn-primary d-grid w-100">수강생</a>

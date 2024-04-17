@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.line::before{
+	content:"";
+	flex-grow:1;
+	margin:8px 16px;
+	background:rgba(0,0,0,0.35);
+	height:1px;
+	font-size:0px;
+	line-height: 0px;
+}
+.line::after {
+	content:"";
+	flex-grow:1;
+	margin:8px 16px;
+	background:rgba(0,0,0,0.35);
+	height:1px;
+	font-size:0px;
+	line-height: 0px;
+}

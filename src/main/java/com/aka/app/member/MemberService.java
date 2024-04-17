@@ -3,6 +3,8 @@ package com.aka.app.member;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -29,6 +32,8 @@ public class MemberService extends DefaultOAuth2UserService implements UserDetai
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private JavaMailSender javaMailSender;
 	
 	
 	@Override
@@ -116,6 +121,38 @@ public class MemberService extends DefaultOAuth2UserService implements UserDetai
 		}
 		//
 		return check;
+	}
+	
+	public String updatePassword() {
+		return "";
+	}
+	
+	public boolean updateMail(MemberVO memberVO) {
+//		memberVO.getEmail(), 바꿔줄 비밀번호
+		sendMail("rhalsgy@naver.com", "1234");
+		return true;
+	}
+	
+	// mail을 보내줄 메서드 (메일 수신자, 변경한 비밀번호)
+	private void sendMail(String to, String password) {
+		MimeMessage mime = javaMailSender.createMimeMessage();
+		try {
+			MimeMessageHelper mimeHelper = new MimeMessageHelper(mime, true, "UTF-8");
+			// 메일받는사람
+			mimeHelper.setTo(to);
+			// 메일제목
+			mimeHelper.setSubject("A.K.A 비밀번호 변경");
+			
+			// 메일본문
+			mimeHelper.setText(
+					"<hr>"
+					+"<h3>비밀번호 : "+password+"</h3>"
+					+"<hr>"
+					,true);
+			javaMailSender.send(mime);
+		} catch (Exception e) {
+			throw new RuntimeException("실패");
+		}
 	}
 }
 

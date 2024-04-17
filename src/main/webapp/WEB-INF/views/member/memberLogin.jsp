@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="../assets/member_css/member.css"/>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -153,7 +154,7 @@
                   />
                   <label for="user_id">userID</label>
                 </div>
-                <div class="form-floating input-group input-group-merge">
+                <div class="form-floating">
                     <input
                       type="password"
                       class="form-control"
@@ -162,7 +163,7 @@
                       placeholder="password"
                     />
 	                <label for="password">Password</label>
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    <!-- <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span> -->
                  </div>
                 <div class="d-flex justify-content-end mt-2">
                   <a href="/test/test">
