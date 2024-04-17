@@ -9,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Component
 public class Pager {
 	
 	private Long page;//페이지 번호
@@ -32,6 +33,9 @@ public class Pager {
 	
 	
 	public void makeIndex() {
+		//1 0
+		//2 10
+		//3 20
 		this.startIndex= (this.getPage()-1)*this.getPage();
 		
 	}

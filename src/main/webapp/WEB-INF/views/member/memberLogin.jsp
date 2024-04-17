@@ -77,7 +77,7 @@
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
-              <div class="d-flex justify-content-center mb-4">
+              <div class="app-brand justify-content-center">
                 <a href="/login" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <svg
@@ -137,42 +137,44 @@
                   <span class="app-brand-text demo text-body fw-bolder text-uppercase">A.K.A</span>
                 </a>
               </div>
-              	<div class="d-flex justify-content-center mb-3">
-              		<span class="fs-4 fw-bold text-danger">${param.message}</span>
-				</div>
-				
+
               <form class="mb-3" action="./login" method="POST">
-                <div class="form-floating mb-3">
+                <div class="mb-3">
+                  <label for="user_id" class="form-label">UserID</label>
                   <input
                     type="text"
                     class="form-control"
                     id="user_id"
                     name="userId"
                     placeholder="UserID"
+                    value=user1
                     autofocus
                   />
-                  <label for="user_id">userID</label>
                 </div>
-                <div class="form-floating input-group input-group-merge">
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Password</label>
+                    <a href="auth-forgot-password-basic.html">
+                      <small>Forgot Password?</small>
+                    </a>
+                  </div>
+                  <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      class="form-control"
                       id="password"
+                      class="form-control"
                       name="password"
-                      placeholder="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                      value=pass1234
                     />
-	                <label for="password">Password</label>
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                 </div>
-                <div class="d-flex justify-content-end mt-2">
-                  <a href="/test/test">
-                    <small>Forgot Password?</small>
-                  </a>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe"/>
-                    <label class="form-check-label" for="rememberMe"> Remember Me </label>
+                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                    <label class="form-check-label" for="remember-me"> Remember Me </label>
                   </div>
                 </div>
                 <div class="mb-3">
@@ -186,9 +188,7 @@
                 <span class="line d-flex justify-content-center">또는</span>
               </div>
               <div class="mb-3">
-              	<a href="/oauth2/authorization/kakao" class="nav-link">
-                	<button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
-                </a>
+                <button class="btn btn-primary d-grid w-100" style="background-color: rgb(254,229,0); color:black; border-color:rgb(254,229,0);" type="submit">카카오 로그인</button>
               </div>
             </div>
           </div>
@@ -216,9 +216,5 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- URL뒤에 파라미터 안보이게 -->
-   	<script type="text/javascript">
-		history.replaceState({}, null, location.pathname);
-	</script>
   </body>
 </html>
