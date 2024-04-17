@@ -2,8 +2,6 @@ package com.aka.app.config;
 
 
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
