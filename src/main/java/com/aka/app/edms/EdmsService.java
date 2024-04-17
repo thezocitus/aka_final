@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class EdmsService {
 	
-	
 	@Autowired
-	private EdmsDAO edmsDAO;
+	private EdmsDAO edmsDAO ;
 	
 	
 	public int createEdms(EdmsVO edmsVO) throws Exception {

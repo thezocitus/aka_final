@@ -8,15 +8,12 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface EdmsDAO {
 
-	
-	public int createEdms(EdmsVO edmsVO) throws Exception;
-	
+	public int createEdms(EdmsVO edmsVO)throws Exception;
 	
 	
 	
-	
-	
-	//직원목록 불러오기
+	//맴버 리스트 가져오기
 	public List<Map<String, String>> getMemberList() throws Exception;
+	
 	
 }
