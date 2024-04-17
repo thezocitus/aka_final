@@ -3,6 +3,8 @@ package com.aka.app.member;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 
+import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -29,6 +32,8 @@ public class MemberService extends DefaultOAuth2UserService implements UserDetai
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private JavaMailSender javaMailSender;
 	
 	
 	@Override
@@ -116,6 +121,25 @@ public class MemberService extends DefaultOAuth2UserService implements UserDetai
 		}
 		//
 		return check;
+	}
+	
+	public boolean updateMail() {
+		
+		return true;
+	}
+	
+	private void sendMail(String to, String password) {
+		MimeMessage mime = javaMailSender.createMimeMessage();
+		try {
+			MimeMessageHelper mimeHelper = new MimeMessageHelper(mime, true, "UTF-8");
+			mimeHelper.setTo(to);
+			mimeHelper.setSubject("Test");
+			
+			mimeHelper.setText("TestTest");
+			javaMailSender.send(mime);
+		} catch (Exception e) {
+			throw new RuntimeException("실패");
+		}
 	}
 }
 
