@@ -36,7 +36,8 @@ public class MemberController {
 			return "member/memberLogin";
 		}
 		
-		return "redirect:/";
+		return "member/memberLogin";
+//		return "redirect:/";
 	}
 	
 	@PostMapping("login")

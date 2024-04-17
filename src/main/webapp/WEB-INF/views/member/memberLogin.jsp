@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="../assets/member_css/member.css"/>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -151,14 +152,7 @@
                     autofocus
                   />
                 </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
-                  <div class="input-group input-group-merge">
+                <div class="form-floating">
                     <input
                       type="password"
                       id="password"
@@ -168,8 +162,13 @@
                       aria-describedby="password"
                       value=pass1234
                     />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
+	                <label for="password">Password</label>
+                    <!-- <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span> -->
+                 </div>
+                <div class="d-flex justify-content-end mt-2">
+                  <a href="/test/test">
+                    <small>Forgot Password?</small>
+                  </a>
                 </div>
                 <div class="mb-3">
                   <div class="form-check">

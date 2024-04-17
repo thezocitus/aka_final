@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class FileMapping implements WebMvcConfigurer {
-	
+//	
 //	@Value("${app.upload.url}")
 //	private String urlPath;
 //	@Value("${app.upload.base}")
@@ -20,7 +20,7 @@ public class FileMapping implements WebMvcConfigurer {
 //		registry.addResourceHandler(urlPath)
 //		.addResourceLocations(filePath);
 //	}
-//		
 
+	
 	
 }
