@@ -33,7 +33,12 @@ public class EdmsService {
 		
 	}
 	
-	public List<ChartVO> getDeptList() throws Exception{
+//	public List<ChartVO> getDeptList() throws Exception{
+//		
+//		return edmsDAO.getDeptList();
+//	}
+	
+	public List<Map<String, Object>> getDeptList() throws Exception{
 		
 		return edmsDAO.getDeptList();
 	}

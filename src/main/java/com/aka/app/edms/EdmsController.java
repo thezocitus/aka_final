@@ -58,12 +58,12 @@ public class EdmsController {
 		//직원목록 불러오기
 		List<Map<String, String>> result = edmsService.getMemberList(); 
 		
-		List<ChartVO> chartAr = edmsService.getDeptList();
+//		List<ChartVO> chartAr = edmsService.getDeptList();
 		
 		Map<String, String> list = new HashMap<>();
 		
-		System.out.println(chartAr.get(0).getName());
-		
+//		System.out.println(chartAr.get(0).getName());
+//		
 		JsonArray jsonAr = new JsonArray();		
 		//chart list에 부서 넣기
 //		for (Map<String, String> a : deptList) {
@@ -139,17 +139,19 @@ public class EdmsController {
 	
 	@GetMapping("api/Chart")
 	@ResponseBody
-	public List<ChartVO> getMethodName() throws Exception {
+	public List<Map<String, Object>> getMethodName() throws Exception {
 		
-		 List<ChartVO> result =edmsService.getDeptList();
-		
-		 for(ChartVO chartVO : result) {
+//		 List<ChartVO> result =edmsService.getDeptList();
+		 List<Map<String, Object>> result =edmsService.getDeptList();
+		 for(Map<String, Object> a : result) {
 			 
-			 chartVO.setType("dept");
-			 
-			 System.out.println("apichart"+chartVO);
+			
+			 a.replace("parent", 0, "#");
+			 a.put("type", "dept");
+			
+			
 		 }
-		 
+		 System.out.println("apichart"+result);
 		
 		 
 		return result;

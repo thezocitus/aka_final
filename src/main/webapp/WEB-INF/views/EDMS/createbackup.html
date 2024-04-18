@@ -5,14 +5,7 @@
 
 <!DOCTYPE html>
 
-<head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-	
 
-</head>
 
 
  <c:import url="../temp/head.jsp"></c:import>
@@ -21,8 +14,10 @@
 
 
 
-    
-	
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
 
 <style>
 
@@ -424,13 +419,8 @@
 		<div class="modal-body" style="display: flex;">			
  			
 			<div id="people-box">
-			  <div id="jstree">
-
-
-
-				
-			  </div>
-			  <input id="schName" value="">
+			  <div id="jstree_demo_div"></div>
+	    	
 		    </div>
 		    
 			<div id="add-remove">
@@ -480,6 +470,8 @@
 
 
 
+
+
 <script>
       $('#summernote').summernote({
         placeholder: 'Hello stand alone ui',
@@ -496,13 +488,7 @@
         ]
       });
     </script>
-<!-- include libraries(jQuery, bootstrap) -->
 
-
-<script src="/assets/vendor/libs/jquery/jquery.js"></script>
-<script src="/assets/vendor/js/bootstrap.js"></script>
-<script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
 <script>
 
@@ -520,12 +506,20 @@
 
 	addLineBtn.addEventListener('click', e=>{
 		console.log("1qewqeq");
-		fSch();
 		
+		initialize(jstree_demo_div,true);
+
 	})
 
 	addLineBtn.addEventListener('shown.bs.modal',function(){		
+		
+	
+
+
+
 		myInput.focus()	
+
+
 	});
 
 	
@@ -621,7 +615,7 @@
 
 
 // jstree 초기화 함수
-
+function initialize(id, callback, isAllopen = false){
     
 	let jsonAr =[  { "id" : "S1", "parent" : "#", "text" : "SI 사업부", "icon" : "glyphicon glyphicon-home" },
     { "id" : "S2", "parent" : "#", "text" : "솔루션 사업부","alias":"ㅋㅋㅋ" , "icon" : "glyphicon glyphicon-home"  },
@@ -644,108 +638,85 @@
     { "id" : "J08", "parent" : "S22", "text" : "홍문어" , "icon": "glyphicon glyphicon-user"}]
 
 
-	function fSch() {
-            console.log("껌색할께영");
-            $('#jstree').jstree(true).search($("#schName").val());
-        }
-
-        //중요 속성, original, icon, state
-        // root node는 parent를 #
-
-        //Default 설정 바꾸깅, 아래를 주석 처리해보면 모양이 어케 바뀔깡?
-        $.jstree.defaults.core.themes.variant = "large";
-
-        //맹글기, 옵션없이(디폴트 옵션으로, 요렇게는 잘 안씀)
-        //$("#jstree").jstree();   // creates an instance
-        //$('#tree2').jstree(true); // get an existing instance (will not create new instance)
-
-        //일반적으로 요렇게만 사용해도 충분!
-        $("#jstree").jstree({
-            "plugins": ["search"],
-            'core': {
-                'data':{
-                    "url": function ('api/chart') {
-                        return "alldata.json"; // ajax로 요청할 URL
-                    } 
-				},
-                    /*,
-                    "data": function (node) {
-                        return { 'id': node.id }  // ajax로 보낼 데이터(없어서 주석)
-                    }
-                    */
-                
-                "check_callback": true  // 요거이 없으면, create_node 안먹음
+    chart = $(`#jstree_demo_div`); // 주어진 id로 jstree 차트 요소 선택
+    chart.jstree({ // jstree 초기화
+        'core' : {
+            'animation' : 0, // 애니메이션 비활성화
+            'check_callback' : true, // 콜백 함수 사용 여부
+            'data' : { url:'api/chart',
+					'dataType':'json'
             }
-        });
+        },
+		"check_callback": true
+        // plugins : ['types', 'wholerow'], // 플러그인 설정
+        // 'types':{ // 노드 유형 및 아이콘 설정
+        //     'dept' : { // 부서 노드
+        //         'icon': 'bi bi-building' // 부서 아이콘
+        //     },
+        //     'person' : { // 직원 노드
+        //         'icon' : 'bi bi-person' // 직원 아이콘
+        //     }
+        // }
 
+    });
 
-        /* 보통은 위 방식으로 충분하지만, 좀더 세밀한 제어를 하고 싶다면, 
-           직접 ajax구현 및 데이터 조작후 callback함수 cb를 이용하여 data세팅
-        $("#jstree").jstree({
-            "plugins": ["search"],
-            'core': {
-                'data': function (obj, cb) {
-                    console.log("ck1:", obj,this);
+    let selected; // 선택된 노드를 저장할 변수
 
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("get", "alldata.json", true);
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            console.log(xhr.responseText);
-                            cb.call(obj, JSON.parse(xhr.responseText));
-                            $('#jstree').jstree(true)
-                        }
-                    }
-                    xhr.send();
-                },
-               "check_callback": true  // 요거이 없으면, create_node 안먹음
-            }
-        });
-        */
+    // 노드 선택 이벤트 리스너 등록
+	// chart.on(
+    //     'select_node.jstree', (e, data)=>{
+    //         let isSelected; // 선택 여부를 나타내는 변수
+    //         // 이전에 선택된 노드와 현재 노드가 같은 경우
+    //         if(selected?.node.id === data.node.id){
+    //             data.instance.deselect_node(data.node); // 노드 선택 해제
+    //             selected = null; // 선택된 노드 변수 초기화
+    //             isSelected = false; // 선택되지 않음 표시
+    //         } else {
+    //             selected = data; // 선택된 노드 저장
+    //             isSelected = true; // 선택됨 표시
+    //         }
 
+    //         // 옵션이 'person'이고 선택된 노드가 'dept'인 경우
+    //         if(opt === 'person' && data.node.type === 'dept'){
+    //             data.instance.deselect_node(data.node); // 노드 선택 해제
+    //             return; // 함수 종료
+    //         }
 
+    //         // 선택된 노드의 정보를 포함한 파라미터 객체 생성
+    //         let param = {
+    //             id : data.node.id, // 노드 ID
+    //             name : data.node.text, // 노드 이름
+    //             type : data.node.type, // 노드 유형
+    //             depth : data.node.original.depth, // 노드 깊이
+    //             children : data.node.children, // 하위 노드 배열
+    //             parent : data.node.parent, // 상위 노드 ID
+    //             isSelect : isSelected // 선택 여부
+    //         }
 
-        //이벤트
-        $('#jstree').on("changed.jstree", function (e, data) {
-            console.log(data.selected);
-        });
+            
+    //     }
+    // )
 
-        // Node 열렸을 땡
-        let isAdded = false;
-        $('#jstree').on("open_node.jstree", function (e, data) {
-            console.log("open되었을땡", data.node);
+    // 모든 노드를 열기 옵션에 따라 트리 열기 동작 설정
+    if(isAllopen) {
+        chart.on('ready.jstree', ()=>chart.jstree('open_all')); // 모든 노드 열기
+    } else {
+        chart.on('ready.jstree', ()=>chart.jstree('open_node',{id : '1'})); // 루트 노드만 열기
+    }
+}
 
-            // 자식 NODE 맹글기, NODE ID S22(MES)가 열렷을 때
-            // 한번만 김지은 추가하는 예제, 메소드 리스트에서 create_node검색
-            if (!isAdded && data.node.id == 'S22') {
-                let myNode = {
-                    "text": "김지은",
-                    "id": "J09",
-                    "whoisshe": "actress",
-                    "isBestFriend": "Y",
-                    "icon": "glyphicon glyphicon-user"
-                };
-                let myCallBack = () => {
-                    alert("추가했어용");
-                }
-                // NODE 추가
-                $('#jstree').jstree(true).create_node('S22', myNode, "last", myCallBack);
-                isAdded = true;
-            }
+/**
+ * 조직도를 재생성함
+ */
+function refreshTree(){
+    chart.jstree('refresh') // 트리 재생성
+}
 
-        });
-
-        // Node 선택했을 땡
-        $('#jstree').on("select_node.jstree", function (e, data) {
-            console.log("select했을땡", data.node);
-        });
-
-		
-
-    
-
-
-
+// 외부에서 사용할 함수들을 모아둔 객체
+let orgChart = {
+    init : initialize, // 초기화 함수
+    refresh : refreshTree // 트리 재생성 함수
+}
 
 
 </script>
@@ -754,5 +725,9 @@
 
 
 
-
+<!-- include libraries(jQuery, bootstrap) -->
+ <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+ <script src="/assets/vendor/js/bootstrap.js"></script>
+ <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 

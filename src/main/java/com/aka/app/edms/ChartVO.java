@@ -1,6 +1,6 @@
 package com.aka.app.edms;
 
-import com.nimbusds.jose.shaded.gson.JsonObject;
+
 
 import lombok.Data;
 import lombok.Getter;
@@ -16,5 +16,6 @@ public class ChartVO {
 	private String type;
 	private Integer depth;
 	private Integer parent;
+	private String[] children;
 
 }

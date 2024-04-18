@@ -78,12 +78,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select>
 
-	<resultMap type="ChartVO" id="deptList">
+	<resultMap type="Map" id="deptList">
 		<id column="DEPARTMENT_ID" property="id"/>
-		<result column="DEPARTMENT_NAME" property="name"/>
-		<result column="DEPARTMENT_SUPER_ID" property="parent"/>	
-		<result column="depth" property="depth"/>	
-		
+		<result column="DEPARTMENT_NAME" property="text"/>
+		<result column="DEPARTMENT_SUPER_ID" property="parent"/>		
 	</resultMap>
 	
 </mapper>

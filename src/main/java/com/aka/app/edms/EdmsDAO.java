@@ -21,6 +21,6 @@ public interface EdmsDAO {
 	
 	
 	//부서목록 가져오기
-	public List<ChartVO> getDeptList() throws Exception;
-	
+//	public List<ChartVO> getDeptList() throws Exception;
+	public List<Map<String, Object>> getDeptList() throws Exception;
 }
