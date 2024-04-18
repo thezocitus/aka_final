@@ -79,7 +79,7 @@ public class EdmsController {
 //		
 //			
 //		}
-		System.out.println(result);
+//		System.out.println(result);
 				
 		
 		
@@ -137,26 +137,45 @@ public class EdmsController {
 	
 	
 	
-	@GetMapping("api/Chart")
+	@GetMapping("api/chart")
 	@ResponseBody
-	public List<Map<String, Object>> getMethodName() throws Exception {
-		
+	public List<Map<String, Object>> getMethodName() throws Exception {		
 //		 List<ChartVO> result =edmsService.getDeptList();
-		 List<Map<String, Object>> result =edmsService.getDeptList();
-		 for(Map<String, Object> a : result) {
-			 
+		 List<Map<String, Object>> result =edmsService.getDeptChart();
+		 List<Map<String, Object>> temp = edmsService.getMemberChart();
+		 
+		 
+		 for(Map<String, Object> m : temp) {			 
 			
-			 a.replace("parent", 0, "#");
+			 
+			 m.replace("parent", "0", "#");
+			 m.put("type", "member");
+			
+			
+		 }
+		 
+		 
+		 
+		  
+		 		 
+		 
+		 
+		 for(Map<String, Object> a : result) {			 
+			
+			 
+			 a.replace("parent", "0", "#");
 			 a.put("type", "dept");
 			
 			
 		 }
-		 System.out.println("apichart"+result);
+		 
+		 result.addAll(temp);		 
+		 
+		 System.out.println(result);
+		
 		
 		 
-		return result;
-		
-		
+		return result;		
 		
 		
 	}

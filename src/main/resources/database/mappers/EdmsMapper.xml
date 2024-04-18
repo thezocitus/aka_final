@@ -38,9 +38,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 부서정보 가져오기  -->
 
-	<select id="getDeptList" resultMap="deptList">
+	<select id="getDeptChart" resultMap="deptList">
 	
-	
+	<!-- 
 		WITH RECURSIVE CTE AS (
 		    SELECT 
 		        DEPARTMENT_ID, 
@@ -75,13 +75,58 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    DEPARTMENT AS child ON CTE.DEPARTMENT_ID = child.DEPARTMENT_SUPER_ID
 		GROUP BY 
 		    CTE.DEPARTMENT_ID;
+	 -->
+	 WITH RECURSIVE CTE AS (
+		    SELECT 
+		        DEPARTMENT_ID, 
+		        DEPARTMENT_NAME, 
+		        DEPARTMENT_SUPER_ID, 
+		        0 AS depth,
+		        CAST(DEPARTMENT_ID AS CHAR(200)) AS path
+		    FROM 
+		        DEPARTMENT
+		    WHERE 
+		        DEPARTMENT_SUPER_ID = 0
+		
+		    UNION ALL
+		
+		    SELECT 
+		        d.DEPARTMENT_ID, 
+		        d.DEPARTMENT_NAME, 
+		        d.DEPARTMENT_SUPER_ID, 
+		        depth + 1, 
+		        CONCAT(CTE.path, ',', d.DEPARTMENT_ID)
+		    FROM 
+		        DEPARTMENT d
+		    INNER JOIN 
+		        CTE ON d.DEPARTMENT_SUPER_ID = CTE.DEPARTMENT_ID
+		)
+		SELECT *		   
+		FROM 
+		    CTE
+	 
+	 
+	</select>
+	<select id="getMemberChart" resultMap="memberList">
+		SELECT MEMBER_ID+1000 id, USERNAME, DEPARTMENT_ID, POSITION_NAME FROM `MEMBER` m 
+			JOIN DEPARTMENT d 
+			USING (DEPARTMENT_ID)
+			JOIN POSITIONRANK p 
+			USING (POSITION_ID)
 	
 	</select>
+	
+	<resultMap type="Map" id="memberList">
+		<id column="id" property="id" javaType="String"/> 
+		<result column="USERNAME" property="text"  javaType="String"/>
+		<result column="DEPARTMENT_ID" property="parent"  javaType="String"/>		
+	
+	</resultMap>
 
 	<resultMap type="Map" id="deptList">
-		<id column="DEPARTMENT_ID" property="id"/>
-		<result column="DEPARTMENT_NAME" property="text"/>
-		<result column="DEPARTMENT_SUPER_ID" property="parent"/>		
+		<id column="DEPARTMENT_ID" property="id" javaType="String"/>
+		<result column="DEPARTMENT_NAME" property="text"  javaType="String"/>
+		<result column="DEPARTMENT_SUPER_ID" property="parent"  javaType="String"/>		
 	</resultMap>
 	
 </mapper>

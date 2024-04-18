@@ -38,9 +38,18 @@ public class EdmsService {
 //		return edmsDAO.getDeptList();
 //	}
 	
-	public List<Map<String, Object>> getDeptList() throws Exception{
+	
+	
+	// 차트 불러오기
+	//부서
+	public List<Map<String, Object>> getDeptChart() throws Exception{
 		
-		return edmsDAO.getDeptList();
+		return edmsDAO.getDeptChart();
 	}
 	
+	//사원
+	public List<Map<String, Object>> getMemberChart() throws Exception{
+		
+		return edmsDAO.getMemberChart();
+	}
 }
